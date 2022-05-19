@@ -113,7 +113,7 @@ $ rm -r test
 
 1. Git 기초설정
 
-   - 누가 커밋을 남겼는지 이름, 이메일 주소를 설정한다.
+   - 누가 커밋을 남겼는지 이름, 이메일 주소를 설정합니다.
 
      ```bash
      $git config --global user.name  "이름"
@@ -121,7 +121,7 @@ $ rm -r test
      bash$git config --global user.email  "000@naver.com"
      ```
 
-   - 작성자가 올바르게 작성하였는지 확인한다.
+   - 작성자가 올바르게 작성하였는지 확인 합니다.
 
      ```bash
      $git config --global -l  
@@ -134,10 +134,142 @@ $ rm -r test
 2. Git 기본 명령어
    - 로컬 저장소
      - Working Directory
-       - 최초로 작성하여 저장한다.
+       - 사용자의 일반적인 작업이 일어나는 공간
      - Staging Area
-       - 버전 업데이트전 준비하는 장소
-     - Commit
-       - 버전 업데이트하는 장소
-
-![]()
+       - 커밋을 위한 파일 및 폴더가 추가되는 공간
+     - Commit(Repository)
+       - Staging Area에 있던 파일 및 폴더의 변경사항(커밋)을 저장하는 공간
+     - Git의 버전관리 순서
+       - Working Directory > Staging Area > Repository(Commit)
+     
+   - git init
+   
+     ```bash
+     $git init
+     Initialized empty Git repository in c:/users/kyeon/ooo/.git/
+     
+     kyeon@KYEON MING64 ~/ooo(master)
+     ```
+   
+     - 현재 작업중인 디렉토리를 git으로 관리 한다는 명령어
+     - git 이라는 숨김폴더를 생성하고, 터미널에는 (master)라고 표기됩니다.
+     
+   - git status(가장 중요한 명령어)
+   
+     ```bash
+     $ git status
+     On branch master
+     
+     No commits yet
+     
+     nothing to commit (create/copy files and use "git add" to track)
+     ```
+   
+     - Working Directory와 Staging Area에 있는 파일의 현재 상태를 알려주는 명령어
+   
+     - 어떤 작업을 수행할 때 수시로 status확인하는 습관을 들이면 좋습니다
+   
+     - 상태
+   
+       1. Untracked : Git이 관리하지 않는 파일(한 번도 Staging Area에 올라가지 않은 파일)
+   
+       2. Tracked : Git이 관리하는 파일
+   
+          a. Unmodified : 최신상태
+   
+          b. Modified : 수정되었지만 아직 Staging Area에 올라가지는 않은 상태
+   
+          c. Staged : Staging Area에 올라간 상태
+          
+   
+   - git add
+   
+     ```bash
+     # 특정 파일
+     $ git add a.txt
+     
+     # 특정 폴더
+     $ git add my_folder/
+     
+     # 현재 디렉토리에 속한 파일/폴더 전부
+     $ git add .
+     ```
+   
+     - Working Directory에 있는 파일을 Staging Area로 올리는 명령어
+   
+     - Git이 해당 파일을 추적(관리)할 수 있도록 만듭니다.
+   
+     - Untracked, Tracked > Staged 로 상태를 변경합니다
+   
+     - Ex)
+   
+       ```bash
+       $ touch a.txt b.txt
+       
+       $ git status
+       On branch master
+       
+       No commits yet
+       
+       Untracked files: # 트래킹 되고 있지 않는 파일 목록
+         (use "git add <file>..." to include in what will be committed)
+               a.txt
+               b.txt
+       
+       nothing added to commit but untracked files present (use "git add" to track)
+       ```
+   
+       ```bash
+       # a.txt만 Staging Area에 올립니다.
+       
+       $ git add a.txt
+       ```
+   
+       ```bash
+       $ git status
+       
+       On branch master
+       
+       No commits yet
+       
+       Changes to be committed: # 커밋 예정인 변경사항(Staging Area)
+         (use "git rm --cached <file>..." to unstage)
+               new file:   a.txt
+       
+       Untracked files: # 트래킹 되고 있지 않은 파일
+         (use "git add <file>..." to include in what will be committed)
+               b.txt
+       ```
+   
+   - git commit
+   
+     ```bash
+     $ git commit -m "first commit"
+     [master (root-commit) c02659f] first commit
+      1 file changed, 0 insertions(+), 0 deletions(-)
+      create mode 100644 a.txt
+     ```
+   
+     - Staging Area에 올라온  파일의 변경사항을 하나의 버전(커밋)으로 저장하는 명령어
+     - 커밋 메세지는 현재 변경사항들을 잘 나타낼 수 있도록 의미있게 작성하는 것이 좋습니다.
+     - 각각 커밋은 SHA-1알고리즘에 의해 반환된 고유의 해시 값을 ID로 가집니다.
+   
+   - git log
+   
+     ```bash
+     $ git log
+     commit 1870222981b4731d14ef91d401c68c0bbb2f6e7d (HEAD -> master)
+     Author: kyle <kyle123@hphk.kr>
+     Date:   Thu Dec 9 15:26:46 2021 +0900
+     
+         first commit
+     ```
+   
+     - 커밋의 내역(ID, 작성자, 시간, 메세지 등)을 조회할 수 있는 명령어
+     - 옵션
+       - --oneline > 한 줄로 축약해서 보여줍니다.
+       - --graph > 브랜치와 머지 내역을 그래프로 보여줍니다.
+       - --all > 현재 브랜치를 포함한 모든 브랜치의 내역을 보여줍니다.
+       - --reverse > 커밋 내역의 순서를 반대로 보여줍니다.(최신내역이 가장 아래)
+       - -p > 파일의 변경내용도 같이 보여줍니다.
+       - -2 > 원하는 갯수만큼 내역을 보여줍니다(2말도 다른 숫자 사용가능)
