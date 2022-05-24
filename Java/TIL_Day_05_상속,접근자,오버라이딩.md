@@ -16,7 +16,7 @@
 
 - 부모 클래스의 생성자가 먼저 실행된다 > 자식 클래스가 실행된다.
 
-<img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523181430737.png" alt="image-20220523181430737" style="zoom: 67%;" />
+
 
 #### 3. 자식 클래스와 부모 클래스의 생성자 짝 맞추기
 
@@ -59,7 +59,7 @@
 
     - 부모 클래스의 생성자에게 보낼 매개변수도 같이 전달하면서 자식 클래스의 생성자가 받아서 부모 클래스의 생성자에게 필요한 만큼의 매개변수 전달.
 
-      <img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523182434400.png" alt="image-20220523182434400" style="zoom:67%;" />
+      
 
 ### 접근 제한자
 

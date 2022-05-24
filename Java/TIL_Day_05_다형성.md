@@ -10,25 +10,25 @@
 
 - 자식 타입은 부모 타입으로 자동 타입 변환 발생
 
-  <img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523191327361.png" alt="image-20220523191327361" style="zoom:67%;" />
+  
 
 - **자동 타입 변환(Promoted)**
 
   - 프로그램 실행중에 자동으로 타입변환이 일어나는 것
 
-    <img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523191839255.png" alt="image-20220523191839255" style="zoom:67%;" />
+    
 
   - 바로 위의 부모가 아니더라도 상속 계층의 상위이면 자동 타입변환 가능
 
     - 비록 변수는 자식 객체를 참조하지만 변수로 접근 가능한 멤버는 부모 클래스 멤버로 한정한다.
 
-      <img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523192426730.png" alt="image-20220523192426730" style="zoom:67%;" />
+      
 
   - **주의**
 
     - 변환 후에는 부모 클래스 멤버만 가능
 
-      <img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523192709309.png" alt="image-20220523192709309" style="zoom:67%;" />
+      
 
   - 자동 타입 변환 후에는 부모 클래스 멤버만 접근 가능
 
@@ -71,7 +71,7 @@
 
       - 자식 타입을 부모 타입으로 자동 변환된 후, 다시 자식 타입으로 변환할 때만 가능하다.(원위치의 개념)
 
-        <img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523193557269.png" alt="image-20220523193557269" style="zoom:67%;" />
+        
 
   - **강제 타입 변환이 필요한 경우**
 
@@ -83,9 +83,9 @@
 
 > 객체를 가리키기 위한 레퍼런스 배열을 의미한다.
 
-<img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523193842605.png" alt="image-20220523193842605" style="zoom:50%;" />
 
-<img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523193903210.png" alt="image-20220523193903210" style="zoom:50%;" />
+
+
 
 - 객체를 가리키는 레퍼런스를 원소로 가지는 배열
 
@@ -93,7 +93,7 @@
   Person[] p = new Person[5];  //레퍼런스(참조변수) 5개 생성
   ```
 
-  <img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523194000029.png" alt="image-20220523194000029" style="zoom:67%;" />
+  
 
 - ```java
   p[i] = new Person();     //객체 생성
@@ -101,7 +101,7 @@
 
   - 객체가 생성되고 레퍼런스 배열의 각 원소가 객체를 가리킴
 
-    <img src="C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20220523194053302.png" alt="image-20220523194053302" style="zoom:67%;" />
+    
 
     => p : 레퍼런스 배열을 가리키는 참조 변수
 
