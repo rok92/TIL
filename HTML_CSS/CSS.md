@@ -143,8 +143,12 @@
     - 형식
 
       - 태그명[ 속성=”값”] : 일치하는
+
       - 태그명[ 속성^=”값”] : 시작하는
+
       - 태그명[ 속성$=”값”] : 끝나는
+
+        <img src="CSS.assets/image-20220614192702300.png" alt="image-20220614192702300" style="zoom:80%;" />
 
       ![image-20220614183107487](CSS.assets/image-20220614183107487.png)
 
@@ -154,7 +158,7 @@
     - 선택자 : **checked** - 체크된 input태그 선택
     - 선택자 : **focus**- 포커스를 받은 input태그 선택
     - 선택자 : enable- 사용 가능한 input태그 선택
-    - 선택자 : disanable- 사용 불가능한 input태그 선택
+    - 선택자 : disable- 사용 불가능한 input태그 선택
 
 ### 3. CSS 속성
 
