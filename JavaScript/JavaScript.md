@@ -64,7 +64,7 @@
 
   - **External 방식**
 
-    - **별**도의 자바스크립트 파일 (.js)로 작성하여 HTML 문서에서 소스 지정
+    - 별도의 자바스크립트 파일 (.js)로 작성하여 HTML 문서에서 소스 지정
     - < script src="js/join.js"></script>
 
     **Inline 방식**
