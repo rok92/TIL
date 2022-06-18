@@ -157,8 +157,8 @@
     - 태그의 상태에 따라서 선택 가능
     - 선택자 : **checked** - 체크된 input태그 선택
     - 선택자 : **focus**- 포커스를 받은 input태그 선택
-    - 선택자 : enable- 사용 가능한 input태그 선택
-    - 선택자 : disable- 사용 불가능한 input태그 선택
+    - 선택자 : **enable**- 사용 가능한 input태그 선택
+    - 선택자 : **disable**- 사용 불가능한 input태그 선택
 
 ### 3. CSS 속성
 
