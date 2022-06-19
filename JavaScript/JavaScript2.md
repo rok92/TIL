@@ -112,7 +112,7 @@
         - **예제 : function_callback_sync.html**
       - 비동기적 콜백 함수 사용
         - **동시에 여러 작업 수행**
-      - **function_callback_ㅁsync.html**
+      - **function_callback_async.html**
 
 - 화살표 함수
 
