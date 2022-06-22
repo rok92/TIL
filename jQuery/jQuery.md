@@ -186,8 +186,91 @@
       - HTML 태그 인식 (태그 효과 적용)
     - text()
       - HTML 태그 인식하지 못하고 글자로 인식
+
   - **DOM** **요소의 속성 추가 및 삭제**
+
     - attr(속성명,값) : 속성 추가 (prop())
     - removeAttr(속성명) : 속성 제거
     - attr() : 속성 설정, 조회
     - prop() : 활성화, 체크, 선택여부 등 동적 적용
+
+- **DOM요소에 CSS효과 동적 적용**
+
+  - CSS 클래스 선택자에 적용된 여러 효과를 동적으로 추가하거나 삭제
+
+  - < style>
+
+    .h1Css{,,,,,,,,}
+
+    < /style>
+
+  - addClass('클래스명') : CSS효과 적용
+  - removeClass('클래스명') : 적용된 CSS 효과 해제
+  - toggleClass('클래스명')
+    - addClass()와 removeClass() 번갈아가며 실행하는 결과
+
+- **jQuery 시각적 효과**
+
+  - **Basic 효과**
+
+    - hide() : 요소 숨기기
+    - show() : 요소 표시
+    - toggle() : show() / hide() 번갈아가면서 표시
+
+  - **sliding 효과**
+
+    - slideDown() : 요소를 슬라이딩 효과로 나타나게 함
+    - slideUp() : 요소를 슬라이딩 효과로 숨김
+    - slideToggle() : slideDown()과 slideUp 효과를 교대로 실행
+    - 주의!!!!
+      - 슬라이딩 효과는 < div>박스에 적용
+      - 이미지 슬라이딩 효과를 주면 전체적으로 축소/확대 되면서 사라졌다가 보여짐
+
+  - **Fading 효과**
+
+    - fadeIn() : 요소를 선명하게 만들면서 나타남
+    - fadeOut() : 요소를 흐리게 하면서 숨김
+    - fadeToggle()
+    - fadeTo() : 요소의 불투명도 조정 / 투명도 0으로 안보여도 영역은 그대로 남아있음
+
+  - **Animate 효과**
+
+    - animate(속성)
+
+      - 사용자 CSS 효과를 지정하여 애니메이션 수행
+
+    - animate() 형식1
+
+      ![image-20220622102336374](jQuery.assets/image-20220622102336374.png)
+
+    - animate형식2
+
+      ![image-20220622102405955](jQuery.assets/image-20220622102405955.png)
+
+    - 애니메이션 정지
+
+      - $('선택자').stop(); =>false입력한 것으로 간주
+      - $('선택자').stop(true); =>clearQueue 수행
+      - $('선택자').stop(true, true) =>clearQueue, goToEnd 수행
+      - **clearQueue****
+        - 대기열에 있는 함수 모두 제거
+        - 예약된 애니메이션 초기화
+        -  clearQueue() 메소드 실행 효과
+      - **goToEnd**
+        - 제자리에서 멈추는 것이 아니라 지정한 최종 형태에서 멈춤 (애니메이션 진행 중간에 멈추는 것이 아니라 마지막까지 수행되고 멈춤)
+
+  - **공통인수**
+
+    - duaration : 효과 진행 속도(slow / normal / fast)
+
+    - callback(function()) : 효과 완료 후 수행할 함수
+
+    - easing
+
+      - 전체 애니메이션의 적용 시간 비율을 원하는 진행 비율로 매핑
+
+      - swing : 사인 곡성(느리게 시작해서 빠르게 진행하다가 나중에 다시 느려지는 효과)
+
+      - linear : 선형(일정한 속도로 진행)
+
+        ![image-20220622093646105](jQuery.assets/image-20220622093646105.png)
