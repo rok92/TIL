@@ -75,9 +75,11 @@
   - 웹 클라이언트(웹 브라우저)로부터 요청을 서비스(제공)하는 기능 담당
   - 정적인 콘텐츠 (HTML, JPG, CSS 등) 제공
   - 동적인 콘텐츠(데이터 처리) 요청은 웹 컨테이너에게 보내고 **웹 컨테이너(WAS에 포함)**가 처리한 결과를 클라이언트에게 응답 
+
 - **웹 서버 종류**
   - Apache(리눅스/유닉스/윈도우)
   - IIS(Internet Information Server) : MS
+
 - **웹 컨테이너(Web Container)**
   - 웹 애플리케이션을 실행할 수 있는 컨테이너
   - JSP와 Servlet(서블릿)을 실행시킬 숭 있는 소프트웨어
@@ -186,7 +188,7 @@
   - 서블릿 파일 경로 노출로 인한 보안 문제를 없애고url을 간단하게 줄일 수 있음
   - 웹 브라우저에서 서블릿을 요청하기 위해서는 서블릿 맵핑 필요
 
--  **서블릿 동작 과정**
+- **서블릿 동작 과정**
 
   ![image-20220628141019314](백엔드.assets/image-20220628141019314.png)
 
@@ -238,3 +240,105 @@
     - /first
 
     ![image-20220628150503064](백엔드.assets/image-20220628150503064.png)
+
+- **URI (Uniform Resource Identifier : 통합 자원 식별자)**
+
+  - 특정 리소스를 구분하는 식별자
+  - 논리적 또는 물리적 리소스 (접근할 리소스 위치를 알 수 있음)
+  - 인터넷, 모바일 기기 등 다양한 곳에서 사용
+
+- **URL (Uniform Resource Locator) : 웹 주소**
+
+  - 리소스 위치
+  - URI가 서브넷
+
+- **어노테이션을 이용한 서블릿 맵핑**
+  - web.xml에서 여러 서블릿 맵핑 설정 시 복잡
+  - 서블릿 클래스에서 직접 어노테이션으로 서블릿명을 설정하면 가독성도 좋고 편리
+  - @WebServlet을 이용해서 서블릿 맵핑 구현
+  - 어노테이션이 적용되는 클래스는 반드시 HttpServlet 클래스를 상속 받아야 함
+
+- **서블릿 요청 API**
+
+  - **(1) 클라이언트로부터 요청을 받음**
+
+    - 서블릿 요청과 응답 수행 API 
+
+    - javax.servlet.http 패키지에 포함
+
+    - 요청과 관련된 API(javax.servlet.http.HttpServletRequest 클래스)
+
+    - 응답과 관련된 API(javax.servlet.http.HttpServletResponse 클래스)
+
+    - **< form> 태그로 서블릿 요청**
+
+      - **서블릿 데이터를 웹 브라우저를 통해서 전송하는 방법**
+      - **< form> 태그를 사용해서 브라우저에서 서블릿으로 사용자의 요청이나 데이터를 전송**
+
+    - **< form> 태그**
+
+      - action 속성 : 서블릿 또는 JSP 이름 지정
+      - method : GET 또는 POST (디폴트 : GET)
+
+    - **< input> 태그**
+
+      - 데이터 입력 받아서 전송
+      - name 속성 사용
+      - name 속성명과 속성값 쌍으로 전송
+
+    - **서블릿에서 클라이언트의 요청 받기**
+
+      - HttpServletRequest 클래스의 여러 가지 메소드를 이용해서 전송된 데이터를 받음 
+
+      - < form> 태그로 전송된 데이터를 받아오는 메소드
+
+        ![image-20220628171247464](Back_end.assets/image-20220628171247464.png)
+
+- **Get 방식**
+  - 데이터를 전송할 때 데이터가 URL 뒤에 name=value 형태로 전송
+  - 여러 개의 데이터를 전송할 때는 &로 구분해서 전송
+  - 전송 데이터 노출 : 보안 취약
+  - 전송 데이터 길이 제한 : 최대 255자
+  - 기본 전송 방식
+  - 서블릿에서는 doGet() 이용해서 데이터 처리
+  - 웹 브라우저에서 직접 url에 입력해서 doGet() 메소드 호출 가능
+- **Post 방식**
+  - 데이터를 전송할 때 TCP/IP 프로토콜 데이터의 HEAD 영역에 숨겨서 전송됨
+  - 보안에 유리
+  - 전송 데이터 길이 : 용량이 무제한
+  - 서블릿에서는 doPost() 메소드 이용해서 데이터 처리
+  - GET 방식보다 느림
+- **주의!**
+  - 폼에 입력되어 서버로 전송되는 값들은 모두 문자열로 전송 (연산이 필요한 경우 숫자로 형변환 필요)
+  - 1개의 값을 받을 경우 : getParameter() 메소드 사용
+  - 여러 개의 값을 받을 경우 (동일한 name 값이 여러 개인 경우 : checkbox name이 다 동일한 경우)
+    - getParameterValues() 메소드 사용
+    - 반환되는 값이 배열이므로 배열 처리해서 사용
+  - 참고 : 라디오버튼인 경우 한 그룹의 라이오 버튼 이름이 다 동일해도 1개의 값만 전송되므로 getParameter() 메소드 사용
+
+
+
+- **서블릿의 응답 처리 방법**
+  - doGet()이나 doPost() 메소드 안에서 처리함
+  - javax.servlet.http.HttpServletResponse 객체를 이용함
+  - **클라이언트에게 전송할 데이터 타입 인코딩**
+    - response.setContentType(“text/html;charset=utf-8”);
+    - **MIME-TYPE**
+      - 미리 지정해놓은 데이터 종류로 서블릿에서 브라우저로 전송 시 설정해서 사용함
+      - HTML로 전송 시 : text/html
+      - 일반 텍스트로 전송 : text/plain
+      - XML 데이터로 전송 : application/xml
+  - **클라이언트(웹 브라우저)와 서블릿의 통신은 자바 I/O의 스트림 이용**
+    - **PrintWriter 클래스 사용**
+      - PrintWriter out = response.getWriter();
+      - out.print(data);
+      - // data : 웹 브라우저로 보내는 데이터
+
+- **서블릿의 응답 처리 순서**
+
+  ![image-20220628172105545](Back_end.assets/image-20220628172105545.png)
+
+- **doGet() / doPost() 방식 둘 다 처리**
+  - 일반적으로 doHandle() 또는 doProcess() 메소드를 새로 추가해서 doGet() / doPost() 방식 둘 다 처리
+  - doGet() 또는 doPost() 방식으로 요청이 들어오면doGet() 또는 doPost() 메소드에서 doHandle() 호출하고 request와 response 객체 전달
+  - doHandle() 메소드에서 처리
