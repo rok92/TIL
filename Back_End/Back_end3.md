@@ -415,11 +415,19 @@
 
     - **< c:forEach>**
 
-      - 객체 전체에 걸쳐 반복 실행을 할 때 사용
+      - 객체 전체에 걸쳐 반복 실행을 할 때 사용(반복문 수행)
+      - **< c:forEach var = "변수명" begin="시작값" end="마지막값" step="증가값" varStatus="반복상태변수명">** 
+      - var status : 반복상태 속성 지정
+        - index : items에서 정의한 항목을 가리키는 index번호(기본 0부터 시작) / begin=1로하면 index도 1부터 시작
+        - count : 몇 번째인지 표시(1부터 시작)
+        - first : 첫 번째이면 true
+        - last : 마지막 반복이면 true
 
     - **< c:forToken>** 
 
       - 자바의 StringTokenizer 클래스를 사용하는 것과 같음
+
+      ![image-20220701101143208](Back_end3.assets/image-20220701101143208.png)
 
     - **< c:catch>**
 
@@ -436,4 +444,49 @@
     - **< c:url>**
 
       - 쿼리 파라미터로 부터 URL을 생성
+
+      - url 정보 저장
+
+      - < c:url var = "변수명" value = "경로"/>
+
+        ![image-20220701115305302](Back_end3.assets/image-20220701115305302.png)
+
+    - **< c:redirect>**
+
+      - response.sendRedirect() 기능과 동일
+
+      - 매개변수 전달 가능
+
+      - < c:redirect url=”redirect할 url”>
+
+        ​	< c:param name=”id” value=”홍길동” />
+
+        < /c:redirect>
+
+        ![image-20220701115118688](Back_end3.assets/image-20220701115118688.png)
+
+        ![image-20220701115145128](Back_end3.assets/image-20220701115145128.png)
+
+- **포매팅 태그 라이브러리**
+
+  - 숫자 및 날짜와 관련된 포매팅 태그 라이브러리
+  - 라이브러리 : format
+  - prefix : fmt
+  - uri : http://java.sun.com/jsp/jstl/fmt
+  - 형식
+    - < fmt:formatNumber>
+    - < fmt:formatDate>
+    - < fmt:timeZone>
+
+  ![image-20220701115333012](Back_end3.assets/image-20220701115333012.png)
+
+- **functions 라이브러리**
+
+  - 함수 기능
+
+  - prefix : fn
+
+  - uri : http://java.sun.com/jsp/jstl/fnctions
+
+    ![image-20220701115353982](Back_end3.assets/image-20220701115353982.png)
 
