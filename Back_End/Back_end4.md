@@ -6,7 +6,7 @@
 >
 > JSP
 >
-> **스프링 프레임워크** : 자바 기반 웹 프레임워크
+> **스프링 프레임워크 : 자바 기반 웹 프레임워크**
 
 - **스프링 프레임워크 (Spring Framework)**
 
@@ -165,22 +165,203 @@
       - XML 설정 파일에 < bean> 설정
     - Annotation을 이용한 방법
       - 자바 코드에서 **'@어노테이션이름'** 으로 설정
-  - 예제
+    
+  - **예제**
+    
     - 스프링을 사용하지 않는 DI
       - DI를 사용하지 않는 코드
       - DI를 사용하는 코드
         - 의존성 관계에 있는 객체를 new를 통해 직접 생성하지 않고 생성자를 통해 외부에서 전달(주입 : injection)
         - setter 메소드를 이용하여 의존성 주입 수행
-    - 스프링 DI
-      - XML을 이용한 DI
-        - 생성자 기반 DI
+      
+    - **스프링 DI**
+      
+      - XML을 이용한 DI => XML파일에 bean을 정의(**< bean id="이름" class="패키지명.클래스명">**)하고 의존성 설정(**< ref bean="의존하는빈">**)
+        - **생성자 기반 DI**
+          
           - 클래스에 생성자가 있어야 하고 스프링 설정 파일 (xml)에서 빈을 정의할 때 **< constructor-arg ref="의존하는 빈">** 태그를 이용하여 의존성 주입
+          
           - Main에서 객체 생성하지 않고 XML 설정 파일에서 빈 생성
+          
           - main()의 역할 : 컨테이너 객체 생성 / 컨테이너에서 컴포넌트(빈) 가져옴
-        - Setter 기반 DI
+          
+            ```java
+            // NameServer 클래스 생성
+            
+            package com.di.spring_di_xml_constructor;
+            
+            public class NameService {
+            	public String ShowName(String name) {
+            		System.out.println("NameService의 showName() 메소드");
+            		String myName = "내 이름은 " + name + " 입니다";
+            		return myName;
+            	}
+            }
+            ```
+          
+            ```java
+            // 생성자가 있는 NameController 클래스 생성
+            
+            package com.di.spring_di_xml_constructor;
+            
+            // 스프링에서의 XML 이용한 DI-생성자 기반DI
+            // NameService 클래스의 showName() 메소드 사용
+            // new로 객체 직접 생성하지 않고
+            // 생성자를 통해서 외부에서 주입 받아서 사용
+            public class NameController {
+            	// new 직접 객체 생성하지 않음
+            	NameService nameService;
+            	
+            	// 생성자를 통해서 NameService 객체 전달받음
+            	// 의미 : 생성자를 통해 외부에서 주입받음(injection)
+            	// 의존성 주입
+            	// main()에서 객체를 생성해서 전달하는 것이 아니라
+            	// 컨테이너에서 가져온 빈을 전달해 줌
+            	public NameController(NameService nameService) {
+            		this.nameService = nameService;
+            	}
+            
+            
+            	public void show(String name) {
+            		System.out.println("NameController : "+ nameService.ShowName(name));
+            	}
+            	
+            }
+            ```
+          
+            ```xml
+            <!--bean 생성 -->
+            
+            <?xml version="1.0" encoding="UTF-8"?>
+            <beans xmlns="http://www.springframework.org/schema/beans"
+            	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+            
+            	<bean id = "nameService" class = "com.di.spring_di_xml_constructor.NameService"/>
+            	<bean id = "nameController" class = "com.di.spring_di_xml_constructor.NameController">
+            	
+            	<constructor-arg ref="nameService"/>	<!--의존성 주입-->
+            	</bean>
+            </beans>
+            ```
+          
+            ```java
+            // Main 클래스 생성하고 출력
+            
+            package com.di.spring_di_xml_constructor;
+            
+            import org.springframework.context.support.AbstractApplicationContext;
+            import org.springframework.context.support.GenericXmlApplicationContext;
+            
+            public class NameMain {
+            
+            	public static void main(String[] args) {
+            		// 스프링 컨테이너 객체 생성
+            		AbstractApplicationContext context = new GenericXmlApplicationContext("application-context.xml");
+            		// 오류 : pom.xml에 spring 라이브러리가 없어서 나는 오류
+            		// => pom.xml(설정파일)에 spring 라이브러리 추가
+            		
+            		NameController controller = context.getBean("nameController", NameController.class);
+            		controller.show("김길동");
+            		context.close();
+            	}
+            
+            }
+            ```
+          
+            
+          
+        - **Setter 기반 DI**
+          
           - 클래스에 반드시 setter 메소드가 있어야 하고 스프링 설정 파일(xml)에서 < property> 태그 이용하여 의존객체 주입
-          - < property name="nameService" ref="nameService"/>
+          
+          - **< property name="nameService" ref="nameService"/>**
+          
           - name : Setter 메소드 이름(setNameService)
+          
           - ref : 참조 객체 이름
+          
           - 주의사항 : Setter 메소드를 사용할 경우에는 기본 생성자에 외에 다른 생성자를 정의해서는 안됨
+          
+            ```java
+            // NameServer 클래스 생성
+            
+            package com.di.spring_di_xml_setter;
+            
+            public class NameService {
+            	public void showName() {
+            		System.out.println("내 이름은 이몽룡 입니다");
+            	}
+            }
+            ```
+          
+            ```java
+            // setter 포함한 NameController 클래스 생성
+            
+            package com.di.spring_di_xml_setter;
+            
+            // Spring DI : XML을 이용한 DI - Setter 기반
+            // NameService 클래스의 showName() 메소드 사용
+            // new로 객체 직접 생성하지 않고
+            // 생성자를 통해서 외부에서 주입 받아서 사용
+            public class NameController {
+            	// new 직접 객체 생성하지 않음
+            	NameService nameService;
+            	
+            	// 생성자를 없음
+            	// Setter 메소드를 통해 외부에서 주입받음(injection)
+            	// 의존성 주입
+            	public void setNameService(NameService nameService) {
+            		this.nameService = nameService;
+            	}
+            	
+            	public void show() {
+            		nameService.showName();
+            	}
+            
+            }
+            ```
+          
+            ```xml
+            <!--xml에서 < property> 태그 이용하여 의존객체 주입-->
+            
+            <?xml version="1.0" encoding="UTF-8"?>
+            <beans xmlns="http://www.springframework.org/schema/beans"
+            	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+            
+            	<bean id = "nameService" class = "com.di.spring_di_xml_setter.NameService"/>
+            	<bean id = "nameController" class = "com.di.spring_di_xml_setter.NameController">
+            	
+            	<!-- Setter 기반 : nameService 참조 (nameService 빈을 의존성 주입하도록 설정 : DI 설정) -->
+            	<property name="nameService" ref="nameService"/>
+            	</bean>
+            </beans>
+            ```
+          
+            ```java
+            // Main 클래스 생성하고 출력
+            
+            package com.di.spring_di_xml_setter;
+            
+            import org.springframework.context.support.AbstractApplicationContext;
+            import org.springframework.context.support.GenericXmlApplicationContext;
+            
+            public class NameMain {
+            
+            	public static void main(String[] args) {
+            		// 스프링 컨테이너 객체 생성
+            		AbstractApplicationContext context3 = new GenericXmlApplicationContext("application-context3.xml");
+            		// 오류 : pom.xml에 spring 라이브러리가 없어서 나는 오류
+            		// => pom.xml(설정파일)에 spring 라이브러리 추가
+            		
+            		NameController controller = context3.getBean("nameController", NameController.class);
+            		controller.show();
+            		context3.close();
+            	}
+            }
+            ```
+          
+            
+        
       - Annotation을 이용한 DI
