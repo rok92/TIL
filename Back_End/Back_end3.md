@@ -4,7 +4,7 @@
 >
 > 서블릿
 >
-> JSP
+> **JSP**
 >
 > 스프링 프레임워크
 
@@ -46,7 +46,7 @@
     - 스크립트 요소
     - 액션 태그
 
-- JSP 태그
+- **JSP 태그**
 
   - **< %**로 시작하고 **%>**로 종료
 
@@ -118,6 +118,14 @@
     - JSP 주석 : < %-- --%>
     - **자바 주석 : //, / * */
 
+  - **변수선언 예제**
+
+    ![image-20220702145006992](Back_end3.assets/image-20220702145006992.png)
+
+  - **메소드 선언**	
+
+    ![image-20220702145057312](Back_end3.assets/image-20220702145057312.png)
+
 - **JSP 내장 객체**
 
   - 클라이언트에서 웹 서버에게 JSP 페이지를 요청하면 자동으로 생성
@@ -145,6 +153,16 @@
     - **HTML 태그의 name 속성 값을 받음**
       - **< input type="text" name="name">**
 
+  - **request.getParameter 사용 예제**
+
+    - 입력
+
+      ![image-20220702150513577](Back_end3.assets/image-20220702150513577.png)
+
+    - 출력
+
+      ![image-20220702150546478](Back_end3.assets/image-20220702150546478.png)
+
   - **response 객체**
 
     - JSP 페이지에서 처리한 결과를 웹 브라우저에 응답할 때 사용
@@ -156,12 +174,17 @@
       ![image-20220630091607587](Back_end3.assets/image-20220630091607587.png)
 
   - **out 객체**
+
     - 웹 서버에서 웹 브라우저에게 출력 스트림으로 응답하기 위해 사용
     - out.println(“출력 문자열”);
     - 표현식 < %= 출력문자열 %>과 동일
     - println() : 줄바꿈 적용되지 않음 
       - print()와 동일한 결과 (스페이스 한 칸 정도 차이)
       - 줄바꿈 하기 위해서는 < br> 태그 사용
+
+  - **전송되는 타입이 문자열이기 때문에 숫자 연산을 해야하는 경우 형변환 필요**
+
+    - **Integer.parseInt(request.getParameter());**
 
 - **액션 태그**
 
@@ -193,21 +216,33 @@
     - **forward 액션 태그 : < jsp:forward>**
 
       - < jsp:forward page = "포워딩 할 jsp 페이지"/>
+    
       - 현재 페이지에서 다른 특정 페이지로 전환
+
       - 웹 페이지 간의 제어를 이동시킬 때 사용
 
-    - **param 액션 태그 : < jsp:param>**
+      - login.jsp
+    
+        ![image-20220702152142283](Back_end3.assets/image-20220702152142283.png)
+    
+      - loginResult.jsp
+    
+        - 아이디를 입력하지 않았을 경우 login.jsp로 포워드
 
+        ![image-20220702152240299](Back_end3.assets/image-20220702152240299.png)
+
+    - **param 액션 태그 : < jsp:param>**
+    
       - 자바빈을 JSP 페이지에서 이용할 때 사용
       - DTO / VO에 해당
-
+    
     - **setProperty 액션 태그 : < jsp:setProperty>**
-
+    
       - 프로퍼티의 값을 세팅할 때 사용
       - setter
-
+    
     - **getProperty 액션 태그 < jsp:getProperty>**
-
+    
       - getter
 
 - **자바빈 (JavaBeans)**
@@ -279,7 +314,12 @@
   - **param 내장 객체 사용**
 
     - memberForm_param.jsp
+
+      ![image-20220702153050581](Back_end3.assets/image-20220702153050581.png)
+
     - memberForm_param_result.jsp
+
+      ![image-20220702153115474](Back_end3.assets/image-20220702153115474.png)
 
   - **pageContext 내장 객체**
 
@@ -320,6 +360,18 @@
       ![image-20220630145800535](Back_end3.assets/image-20220630145800535.png)
 
   - **MemberBean 객체를 ArrayList에 담아서 바인딩** 
+
+    - ArrayList에 담아서 바인딩
+
+      ![image-20220702153735295](Back_end3.assets/image-20220702153735295.png)
+
+    - 바인딩한 값 EL표현으로 출력
+
+      ![image-20220702153820049](Back_end3.assets/image-20220702153820049.png)
+
+    - forEach문 사용하여 출력한 값(위 값과 동일하지만 식이 간단함)
+
+      ![image-20220702153900674](Back_end3.assets/image-20220702153900674.png)
 
 - **스코프 (scope) 우선순위**
 
