@@ -170,9 +170,183 @@
     
     - 스프링을 사용하지 않는 DI
       - DI를 사용하지 않는 코드
+      
+        ```java
+        // NameService 클래스 생성
+        
+        package com.di.no_spring_no_di;
+        
+        public class NameService {
+        	public String showName(String name) {
+        		System.out.println("NameService의 showName() 메소드");
+        		String myName = "내 이름은 " + name + " 입니다";
+        		return myName;
+        	}
+        }
+        ```
+      
+        ```java
+        // NameController 클래스 생성
+        
+        package com.di.no_spring_no_di;
+        
+        // NameService 클래스의 showName() 메소드 사용
+        public class NameController {
+        	// 필요한 곳에서 new 연산자를 사용해서 객체 직접 생성
+        	NameService nameService = new NameService(); 
+        	
+        	public void show(String name) {
+        		System.out.println("NameController : " + nameService.showName(name) );
+        	}
+        }
+        
+        /*
+        	show() 메소드 
+        	- 이름을 인자로 입력 받아
+        	- NameService 클래스의 showName() 메소드를 호출하고
+        	- 결과를 받아서 출력
+        	- Controlle 클래스에서 Service 클래스 객체 생성 
+        	-- DI 하지 않고 new 사용해서 직접 객체 생성
+        	
+        	
+        	여기서 NameController 클래스와 NameService가 강한 의존관계에 있음
+        
+        */
+        ```
+      
+        ```java
+        // Main 클래스 생성 후 출력
+        
+        package com.di.no_spring_no_di;
+        
+        public class NameMain {
+        
+        	public static void main(String[] args) {
+        		// NameController 객체 생성하고 show() 메소드 호출하면서 이름 전달
+        		NameController controller = new NameController();
+        		controller.show("홍길동");
+        	}
+        
+        }
+        ```
+      
+        
+      
       - DI를 사용하는 코드
         - 의존성 관계에 있는 객체를 new를 통해 직접 생성하지 않고 생성자를 통해 외부에서 전달(주입 : injection)
+        
+          ```java
+          package com.di.no_spring_di_contructor;
+          
+          public class NameService {
+          	public String showName(String name) {
+          		System.out.println("NameService의 showName() 메소드");
+          		String myName = "내 이름은 " + name + " 입니다";
+          		return myName;
+          	}
+          }
+          ```
+        
+          ```java
+          package com.di.no_spring_di_contructor;
+          
+          // NameService 클래스이 showName() 메소드 사용
+          // new로 객체 직접 생성하지 않고
+          // 생성자를 통해서 외부에서 주입 받아서 사용
+          public class NameController {
+          	// new 직접 객체 생성하지 않음
+          	NameService nameService; 
+          	
+          	// 생성자를 통해서 NameService 객체 전달 받음
+          	// 의미 : 생성자를 통해 외부에서 주입 받음 (injection)
+          	// 의존성 주입
+          	public NameController(NameService nameService) {
+          		this.nameService = nameService;
+          	}
+          
+          	public void show(String name) {
+          		System.out.println("NameController : " + nameService.showName(name) );
+          	}
+          }
+          ```
+        
+          ```java
+          package com.di.no_spring_di_contructor;
+          
+          public class NameMain {
+          
+          	public static void main(String[] args) {
+          		// 외부에서 객체 생성
+          		NameService nameService = new NameService();
+          		
+          		// 외부에서 생성된 객체를 생성자를 통해 주입 (injection)
+          		// 생성자를 이용한 의존성 주입
+          		NameController controller = new NameController(nameService);
+          		controller.show("이몽룡");
+          
+          	}
+          
+          }
+          ```
+        
         - setter 메소드를 이용하여 의존성 주입 수행
+        
+          ```java
+          package com.di.no_spring_di_setter;
+          
+          public class NameService {
+          	public String showName(String name) {
+          		System.out.println("NameService의 showName() 메소드");
+          		String myName = "내 이름은 " + name + " 입니다";
+          		return myName;
+          	}
+          }
+          ```
+        
+          ```java
+          package com.di.no_spring_di_setter;
+          
+          // NameService 클래스이 showName() 메소드 사용
+          // new로 객체 직접 생성하지 않고
+          // 생성자를 통해서 외부에서 주입 받아서 사용
+          public class NameController {
+          	// new 직접 객체 생성하지 않음
+          	NameService nameService; 
+          	
+          	// 생성자 없음
+          	// Setter 메소드를 통해 외부에서 주입 받음 (injection)
+          	// 의존성 주입
+          	public void setNameService(NameService nameService) {
+          		this.nameService = nameService;
+          	}	
+          
+          	public void show(String name) {
+          		System.out.println("NameController : " + nameService.showName(name) );
+          	}
+          
+          }
+          ```
+        
+          ```java
+          package com.di.no_spring_di_setter;
+          
+          public class NameMain {
+          
+          	public static void main(String[] args) {
+          		// 외부에서 객체 생성
+          		NameService nameService = new NameService();
+          		NameController controller = new NameController();
+          		
+          		// 외부에서 만든 객체를 Setter 메소드를 통해서 주입
+          		// 의존성 주입
+          		controller.setNameService(nameService);
+          		controller.show("성춘향");
+          	}
+          
+          }
+          ```
+        
+          
       
     - **스프링 DI**
       
