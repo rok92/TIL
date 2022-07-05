@@ -552,42 +552,263 @@
 
              A2클래스에 @Component를 붙이면 됨
 
-          - @Autowired 어노테이션을 사용하여 bean을 자동 삽입
+          - **@Autowired** 어노테이션을 사용하여 bean을 자동 삽입
 
-- 스프링에서 사용하는 Annotation
+- **스프링에서 사용하는 Annotation**
 
   - **DI(의존성주입) 관련 Annotation** => xml 설정 파일에 있는 < bean>에 대해 DI 하거나, 자바 코드에서 생성된 bean에 대해 DI 할 수 있음
 
     - **@Autowired(스프링 지원) / @Inject(자바 지원)**
-      - 타이을 기준으로 의존성 주입
+      - 타입을 기준으로 의존성 주입
       - 스프링 빈에 의존하는 다른 빈을 자동으로 주입할 때 사용
     - **@Qualifier**
       - 특정 빈의 이름을 지정
       - 동일한 interface 구현한 클래스가 여러개 있는 경우 사용하고자 하는 빈의 이름을 지정할 때 사용
     - @Resource
+      - @Autowired와 @Qualifier 를 같이 사용하는 것과 동일
+      - 자바에서 지원
 
+  - **Annotation 예제**
+
+    - INamesService 인터페이스 생성
+
+      ```java
+      package com.di.spring_di_annotation;
+      
+      public interface INameService {
+      	public String showName(String name);
+      }
+      ```
+
+    - BNameService 클래스 생성(인터페이스를 오버라이딩)
+
+      ```java
+      package com.di.spring_di_annotation;
+      
+      public class BNameService implements INameService {
+      	@Override
+      	public String showName(String name) {
+      		System.out.println("BNameService의 showName() 메소드");
+      		String myName = "내 이름은 " + name + " 입니다";
+      		return myName;
+      	}
+      }
+      ```
+  
+    - AnotherName 클래스
+  
+      ```java
+      package com.di.spring_di_annotation;
+      
+      public class AnotherNameService implements INameService {
+      
+      	@Override
+      	public String showName(String name) {
+      		System.out.println("AnotherNameService의 showName() 메소드");
+      		String myName = "나의 다른 이름은 " + name + " 입니다";
+      		return myName;
+      	}
+      }
+      ```
+  
+      
+  
+    - 어노테이션을 위한 xml 설정
+  
+      ```xml
+      <?xml version="1.0" encoding="UTF-8"?>
+      <beans xmlns="http://www.springframework.org/schema/beans"
+      	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      	xmlns:context="http://www.springframework.org/schema/context"
+      	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+      		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+      	
+      	<!--Annotation을 사용하기 위한 태그 추가  -->
+      	<context:annotation-config/>
+      	
+      	<bean id="bnameService" class="com.di.spring_di_annotation.BNameService"/>
+      	<bean id="anotherNameService" class="com.di.spring_di_annotation.AnotherNameService"/>
+      	<bean id="nameController" class="com.di.spring_di_annotation.NameController"/>
+      </beans>
+      ```
+  
+    - NameController 클래스 생성
+  
+      ```java
+      package com.di.spring_di_annotation;
+      
+      import javax.annotation.Resource;
+      
+      public class NameController {
+      	// nameService 빈을 자동으로 주입(DI 설정)
+      	// INamseService 인터페이스를 구현한 클래스가 2개 이므로 
+      	// @Qualifier("빈이름") 사용해야 함
+      	//@Autowired	=> 자동 입력
+      	//@Qualifier("anotherNameService")	=> 여러개의 구현클래스가 있을때 빈을 설정
+      	//@Qualifier("bnameService")
+      	@Resource(name="anotherNameService")	=> @Autowired, @Qualifier 두개의 성질을 모두 가지고 있는 어노테이션
+      	INameService nameService;
+      	
+      	// setter 메소드를 통해 외부에서 주입 받음
+      	public void setNameService(INameService nameService) {
+      		this.nameService = nameService;
+      	}
+      
+      
+      	public void show(String name) {
+      		System.out.println("NameController : "+ nameService.showName(name));
+      	}
+      	
+      }
+      ```
+  
+    - NameMain 클래스 생성
+  
+      ```java
+      package com.di.spring_di_annotation;
+      
+      import org.springframework.context.support.AbstractApplicationContext;
+      import org.springframework.context.support.GenericXmlApplicationContext;
+      
+      
+      public class NameMain {
+      
+      	public static void main(String[] args) {
+      		AbstractApplicationContext context = new GenericXmlApplicationContext("application-context.xml");
+      		// 오류 : pom.xml에 spring 라이브러리가 없어서 나는 오류
+      		// => pom.xml(설정파일)에 spring 라이브러리 추가
+      		
+      		NameController controller = context.getBean("nameController", NameController.class);
+      		controller.show("홍길동");
+      		context.close();
+      	}
+      }
+      ```
+  
+      
+  
   - **빈 생성 관련 Annotation** => 빈 생성(설정)을 위해 클래스 위에 추가되는 어노테이션으로 클래스 이름위에 붙이면 클래스 파일에 대한 bean이 자동생성
-
+  
     - 빈의 이름은 **클래스 이름에서 첫 문자만 소문자로 지정됨**
-
+  
     - xml파일에서 bean 생성하지 않음
-
+  
     - 어노테이션을 이용하기 위한 xml 설정 파일에서 필요한 작업
-
-      - xml 설정파일에 context 네임스페이스 추가 필요
+  
+      - **xml 설정파일에 context 네임스페이스 추가 필요**
       - **< context-component-scan base-pakage="패키지명"/>** 추가
         - @Component 어노테이션이 적용된 클래스를 빈으로 등록
         - 빈으로 등록될 클래스가 들어있는 패키지 지정
         - 상위 패키지를 지정하면 하위 패키지까지 빈으로 등록될 클래스 찾음
-
+  
+    - **빈 생성 어노테이션 예제**
+  
+      - INamesService 인터페이스 생성
+  
+        ```java
+        package com.di.spring_di_annotation;
+        
+        public interface INameService {
+        	public String showName(String name);
+        }
+        ```
+  
+      - NameService 클래스 생성 : @Component 어노테이션 추가
+  
+        ```java
+        package com.spirng_di_annotation_component;
+        
+        import org.springframework.stereotype.Component;
+        
+        
+        
+        // NameService 클래스를 빈으로 등록
+        // 생성된 빈 이름은 nameService
+        @Component
+        public class NameService implements INameService {
+        
+        	@Override
+        	public String showName(String name) {
+        		System.out.println("NameService의 showName() 메소드");
+        		String myName = "내 이름은 " + name + " 입니다";
+        		return myName;
+        	}
+        }
+        ```
+  
+      - NameController 클래스 생성 : 빈 생성
+  
+        ```java
+        package com.spirng_di_annotation_component;
+        
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Component;
+        
+        // NameController 클래스를 빈으로 등록
+        // 생성된 빈 이름은 nameController
+        @Component
+        public class NameController {
+        	// 어노테이션을 사용해서 DI 설정
+        	@Autowired
+        	INameService nameService;
+        	
+        	public void show(String name) {
+        		System.out.println("NameController : "+ nameService.showName(name));
+        	}
+        }
+        ```
+  
+      - xml 설정파일
+  
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <beans xmlns="http://www.springframework.org/schema/beans"
+        	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        	xmlns:context="http://www.springframework.org/schema/context"
+        	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+        		
+        	<context:component-scan base-package="com.spirng_di_annotation_component"/>
+        		
+        </beans>
+        ```
+  
+      - Main 클래스 생성 후 출력
+  
+        ```java
+        package com.spirng_di_annotation_component;
+        
+        import org.springframework.context.support.AbstractApplicationContext;
+        import org.springframework.context.support.GenericXmlApplicationContext;
+        
+        
+        public class NameMain {
+        
+        	public static void main(String[] args) {
+        		AbstractApplicationContext context = new GenericXmlApplicationContext("application-context2.xml");
+        		// 오류 : pom.xml에 spring 라이브러리가 없어서 나는 오류
+        		// => pom.xml(설정파일)에 spring 라이브러리 추가
+        		
+        		NameController controller = context.getBean("nameController", NameController.class);
+        		// @Component 어노테이션을 사용하여 클래스의 빈을 등록했으므로 
+        		// getBean 메소드를 가져다 사용
+        		
+        		controller.show("이몽룡");
+        		context.close();
+        	}
+        }
+        ```
+  
+        
+  
     - **@Component(@Controller, @Service, @Repository)**
-
+  
       - 클래스를 빈으로 등록(부품등록)
       - 빈 id 지정할 수 있음
       - **@Component("빈이름") => < bean id="빈이름"/>에 해당**
-
+  
     - @Configuration(@Bean)
-
+  
       ![image-20220705113616330](Back_end4.assets/image-20220705113616330.png)
-
+  
     
