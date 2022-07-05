@@ -8,7 +8,7 @@
 >
 > **스프링 프레임워크 : 자바 기반 웹 프레임워크**
 
-- Spring MVC 패턴
+- **Spring MVC 패턴**
 
   - **M : Model(DTO / DAO) / V : View(JSP) / C : Controller**
 
@@ -87,6 +87,23 @@
     - View 검색(ViewResolver)해서 해당되는 View로 서비스 응답
 
       ![image-20220705131906493](Back_end5.assets/image-20220705131906493.png)
+
+- **Spring Project 생성**
+
+  - 프로젝트 생성
+    - 기본 컨트롤러와 뷰 페이지 자동으로 생성되어 있음
+    - 컨트롤러 : HomeController.java
+    - 뷰 페이지 : Home.jsp
+    - 원하는 컨트롤러, 뷰페이지 생성하여 사용가능
+  - **기본설정**
+    - **pom.xml 설정**
+      - **Java version을 11로 변경**
+      - **Spring Framework를 5.2.22. RELEASE로 변경**
+      - **Maven compiler : 1.8로 변경**
+    - **프로젝트 설정(properties)**
+      - **Java compiler : 11로 변경**
+      - **Java Build Path : Workspace default JRE(jdk-11.0.15)로 변경**
+      - **Project Facets : Java version 11로 변경 / Runtimes를 Apache Tomcat v9.0체크**
 
 - **Spring 디렉터리 구조**
 
@@ -181,6 +198,13 @@
       - key/value 형태로 값을 임시 저장
       - Controller에서 Model에 데이터 저장하고 View이름을 return하면 View페이지로 Model이 전달
       - View 페이지에서 key를 사용해서 Model에 저장된 데이터 사용
+  - **Model사용형식**
+    - 요청 처리 메소드에서 Model 객체를 파라미터로 받음
+      - **public String home(Locale locale, Model model)**
+    - addAttribute() 메소드로 key / value 설정
+      - **model.addAttribute("serverTime", formattedDate );**
+    - return 되는 뷰페이지로 전달 : data 추출
+      - **${serveTime}**
   - **ModelAndView 사용형식**
     - ModelAndView 클래스 사용
     - 데이터와 뷰 둘 다 설정
@@ -190,11 +214,4 @@
     - **mv.addObject(“name”, “홍길동”);** // 데이터 설정
     - **mv.setViewName(“showInfo2”);** // 뷰 이름 설정
     - **return mv;** // ModelAndView 객체 반환
-  - **Model사용형식**
-    - 요청 처리 메소드에서 Model 객체를 파라미터로 받음
-      - **public String home(Locale locale, Model model)**
-    - addAttribute() 메소드로 key / value 설정
-      - **model.addAttribute("serverTime", formattedDate );**
-    - return 되는 뷰페이지로 전달 : data 추출
-      - **${serveTime}**
   - **Model과 ModelAndView 같이 사용 가능**
