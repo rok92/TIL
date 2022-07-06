@@ -215,3 +215,37 @@
     - **mv.setViewName(“showInfo2”);** // 뷰 이름 설정
     - **return mv;** // ModelAndView 객체 반환
   - **Model과 ModelAndView 같이 사용 가능**
+
+- **@RequestMapping 다중 맵핑**
+
+  - 한 개의 메소드를 여러 요청 경로로 접근 처리 가능
+  - @RequestMapping(value={"요청경로1", "요청경로2"})
+
+- **View페이지에서 컨트롤러로 데이터 전달**
+
+  - 방법
+    - **form을 통한 데이터 전달**
+      - form데이터를 컨트롤러로 전송할 때 스프링에서 HTTP 요청 파라미터 가져오는 방법 3가지
+        - **getParameter() 메소드 사용 => request.getParameter("no");**
+        - **@RequestParam 어노테이션 사용**
+          - 메소드의 파라미터로 설정(@RequestParam(“stdNo”) String stdNo, …)
+          - 
+        - **command 객체 사용**
+          - 데이터 저장용 클래스 생성(Student)
+          - 요청을 수행하는 메소드에서 Student객체 사용(커멘드 객체)
+          - Command 객체는 자동으로 View의 Model에 등록
+          - View 페이지에서 ${객체.필드명}
+    - **url을 통한 전달**
+      - **@PathVariable** 어노테이션 사용
+      - < a href="/project/student/studentDetailView/${stdNo}">${stdNo}< /a>
+      - @RequestMapping("/student/studentDetailView/{stdNo}")
+      - public String studentDetailView(@PathVariable String stdNo){......}
+
+- **<u>HashMap으로 받기</u>**
+
+  - 여러 개의 값을 HashMap으로 받을 수 있음
+  - 학생 검색 폼
+    - 검색 조건 : type
+    - 검색 값(입력값) : keyword
+  - 컨트롤러
+    - @RequestParam HashMap< String, Object> param
