@@ -224,22 +224,292 @@
 - **View페이지에서 컨트롤러로 데이터 전달**
 
   - 방법
+
     - **form을 통한 데이터 전달**
+
       - form데이터를 컨트롤러로 전송할 때 스프링에서 HTTP 요청 파라미터 가져오는 방법 3가지
+
         - **getParameter() 메소드 사용 => request.getParameter("no");**
+
+          ```jsp
+          <%@ page language="java" contentType="text/html; charset=UTF-8"
+              pageEncoding="UTF-8"%>
+          <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+          <%@ page session="false" %>
+          <!DOCTYPE html>
+          <html>
+          	<head>
+          		<meta charset="UTF-8">
+          		<title>학생 정보 등록 폼</title>
+          	</head>
+          	<body>
+          		<h3>학생 정보 등록 폼</h3>
+          		
+          		<form method="post" action="/project/student/newStudent">
+          			학번 : <input type="text" name="stdNo"><br>
+          			성명 : <input type="text" name="stdName"><br>
+          			학년 : <input type="text" name="stdYear"><br><br>
+          			
+          			<input type="submit" value="등록"><input type="reset" value="취소">
+          		</form> 
+          	</body>
+          </html>
+          ```
+
+          ```java
+          // index에서 studentForm 페이지 요청 처리
+          	@RequestMapping("/student/studentForm")
+          	public String studentFormView() {
+          		return "student/studentForm";	// student폴더 안의 studentForm.jsp
+          	}
+          
+          	// (1) HttpServletRequest 클래스의 getParameter()메소드 사용
+          	@RequestMapping("/student/newStudent")
+          	public String newStudent(HttpServletRequest request, Model model) {
+          		// form의 각 <input>태그의 name속성 값으로 전달된 값 받기
+          		String stdNo=request.getParameter("stdNo");
+          		String stdName=request.getParameter("stdName");
+          		String stdYear=request.getParameter("stdYear");
+          		
+          		// Model로 설정 : view페이지로 전달
+          		model.addAttribute("stdNo", stdNo);
+          		model.addAttribute("stdName", stdName);
+          		model.addAttribute("stdYear", stdYear);
+          		
+          		return "student/studentResult";
+          	}
+          ```
+
+          ```jsp
+          <%@ page language="java" contentType="text/html; charset=UTF-8"
+              pageEncoding="UTF-8"%>
+          <!DOCTYPE html>
+          <html>
+          	<head>
+          		<meta charset="UTF-8">
+          		<title>학생 정보 등록 결과</title>
+          	</head>
+          	<body>
+          		학번 : ${stdNo }<br>
+          		성명 : ${stdName }<br>
+          		학년 : ${stdYear }<br>
+          	</body>
+          </html>
+          ```
+
+          
+
         - **@RequestParam 어노테이션 사용**
+
           - 메소드의 파라미터로 설정(@RequestParam(“stdNo”) String stdNo, …)
-          - 
+
+            ```jsp
+            <%@ page language="java" contentType="text/html; charset=UTF-8"
+                pageEncoding="UTF-8"%>
+            <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+            <%@ page session="false" %>
+            <!DOCTYPE html>
+            <html>
+            	<head>
+            		<meta charset="UTF-8">
+            		<title>학생 정보 등록 폼</title>
+            	</head>
+            	<body>
+            		<h3>학생 정보 등록 폼</h3>
+            		
+            		<form method="post" action="/project/student/newStudent2">
+            			학번 : <input type="text" name="stdNo"><br>
+            			성명 : <input type="text" name="stdName"><br>
+            			학년 : <input type="text" name="stdYear"><br><br>
+            			<input type="submit" value="등록"><input type="reset" value="취소">
+            		</form>
+            	</body>
+            </html>
+            ```
+
+            ```java
+            // index에서 studentForm2 페이지 요청 처리
+            	@RequestMapping("/student/studentForm2")
+            	public String studentFormView2() {
+            		return "student/studentForm2";	// student폴더 안의 studentForm2.jsp
+            	}
+            
+            	// (2) @RequestParam 어노테이션 사용
+            	@RequestMapping("/student/newStudent2")
+            	public String newStudent2(@RequestParam("stdNo")String stdNo,
+            							  @RequestParam("stdName")String stdName,
+            							  @RequestParam("stdYear")String stdYear,
+            							  Model model) {
+            		//Model로 설정
+            		model.addAttribute("stdNo", stdNo);
+            		model.addAttribute("stdName", stdName);
+            		model.addAttribute("stdYear", stdYear);
+            		return "student/studentResult";
+            	}
+            ```
+
+            ```jsp
+            <%@ page language="java" contentType="text/html; charset=UTF-8"
+                pageEncoding="UTF-8"%>
+            <!DOCTYPE html>
+            <html>
+            	<head>
+            		<meta charset="UTF-8">
+            		<title>학생 정보 등록 결과</title>
+            	</head>
+            	<body>
+            		학번 : ${stdNo }<br>
+            		성명 : ${stdName }<br>
+            		학년 : ${stdYear }<br>
+            	</body>
+            </html>
+            ```
+
+            
+
         - **command 객체 사용**
+
+          - Form 생성
+
+            ```jsp
+            <%@ page language="java" contentType="text/html; charset=UTF-8"
+                pageEncoding="UTF-8"%>
+            <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+            <%@ page session="false" %>
+            <!DOCTYPE html>
+            <html>
+            	<head>
+            		<meta charset="UTF-8">
+            		<title>학생 정보 등록 폼</title>
+            	</head>
+            	<body>
+            		<h3>학생 정보 등록 폼</h3>
+            		
+            		<form method="post" action="/project/student/newStudent3">
+            			학번 : <input type="text" name="stdNo"><br>
+            			성명 : <input type="text" name="stdName"><br>
+            			학년 : <input type="text" name="stdYear"><br><br>
+            		
+            			<input type="submit" value="등록"><input type="reset" value="취소">
+            		</form>
+            	</body>
+            </html>
+            ```
+
+            
+
           - 데이터 저장용 클래스 생성(Student)
+
+            ```java
+            package com.spring_mvc.project;
+            
+            
+            public class Student {
+            	private String stdNo;
+            	private String stdName;
+            	private String stdYear;
+            	
+            	
+            	public String getStdNo() {
+            		return stdNo;
+            	}
+            	public void setStdNo(String stdNo) {
+            		this.stdNo = stdNo;
+            	}
+            	public String getStdName() {
+            		return stdName;
+            	}
+            	public void setStdName(String stdName) {
+            		this.stdName = stdName;
+            	}
+            	public String getStdYear() {
+            		return stdYear;
+            	}
+            	public void setStdYear(String stdYear) {
+            		this.stdYear = stdYear;
+            	}	
+            }
+            ```
+
           - 요청을 수행하는 메소드에서 Student객체 사용(커멘드 객체)
+
+            ```java
+            // index에서 studentForm3 페이지 요청 처리
+            	@RequestMapping("/student/studentForm3")
+            	public String studentFormView3() {
+            		return "student/studentForm3";	// student폴더 안의 studentForm3.jsp
+            	}
+            	// (3) Command 객체 사용
+            	@RequestMapping("/student/newStudent3")
+            	public String newStudent3(Student student) {
+            		System.out.println(student.getStdNo());		// 콘솔에 출력 확인(없어도 된다)
+            		System.out.println(student.getStdName());
+            		System.out.println(student.getStdYear());
+            		
+            		return "student/studentResult3"; 
+            	}
+            ```
+
           - Command 객체는 자동으로 View의 Model에 등록
+
           - View 페이지에서 ${객체.필드명}
+
+            ```jsp
+            <%@ page language="java" contentType="text/html; charset=UTF-8"
+                pageEncoding="UTF-8"%>
+            <!DOCTYPE html>
+            <html>
+            	<head>
+            		<meta charset="UTF-8">
+            		<title>학생 정보 등록 결과 : Command 객체 사용</title>
+            	</head>
+            	<body>
+            		학번 : ${student.stdNo }<br>
+            		성명 : ${student.stdName }<br>
+            		학년 : ${student.stdYear }<br>
+            	</body>
+            </html>
+            ```
+
     - **url을 통한 전달**
+
       - **@PathVariable** 어노테이션 사용
+
       - < a href="/project/student/studentDetailView/${stdNo}">${stdNo}< /a>
+
       - @RequestMapping("/student/studentDetailView/{stdNo}")
+
       - public String studentDetailView(@PathVariable String stdNo){......}
+
+        ```jsp
+        <%@ page language="java" contentType="text/html; charset=UTF-8"
+            pageEncoding="UTF-8"%>
+        <!DOCTYPE html>
+        <html>
+        	<head>
+        		<meta charset="UTF-8">
+        		<title>학생 정보 등록 결과</title>
+        	</head>
+        	<body>
+        		학번 : ${stdNo }<br>
+        		성명 : ${stdName }<br>
+        		학년 : ${stdYear }<br>
+        		
+        		url을 통한 데이터 전달<br>
+        		학번 : <a href="/project/student/studentDetailView/${stdNo }">${stdNo }</a>
+        	</body>
+        </html>
+        ```
+
+        ```java
+        // url을 통한 데이터 전달
+        	@RequestMapping("/student/studentDetailView/{stdNo}")
+        	public String studentDetailView(@PathVariable String stdNo) {
+        		return "index";
+        	}
+        ```
+
+        
 
 - **<u>HashMap으로 받기</u>**
 
