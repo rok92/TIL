@@ -188,38 +188,186 @@
 
       
 
-- **데이터 전달**
+- **View페이지로 데이터 전달**
 
   - Controller => View페이지
-    - 전달 방법 : Model, ModelAndView 사용
+    - 전달 방법 : **Model, ModelAndView** 사용
     - Model
       - Model 인터페이스
       - Model Attribute 추가하기 위해 고안
       - key/value 형태로 값을 임시 저장
       - Controller에서 Model에 데이터 저장하고 View이름을 return하면 View페이지로 Model이 전달
       - View 페이지에서 key를 사용해서 Model에 저장된 데이터 사용
+    
   - **Model사용형식**
     - 요청 처리 메소드에서 Model 객체를 파라미터로 받음
       - **public String home(Locale locale, Model model)**
+    
     - addAttribute() 메소드로 key / value 설정
       - **model.addAttribute("serverTime", formattedDate );**
+    
     - return 되는 뷰페이지로 전달 : data 추출
       - **${serveTime}**
+    
+    - 예제>
+    
+      ```java
+      // Model 방식
+      @RequestMapping("/showInfo")
+      	public String showInfo(Model model) {
+      		model.addAttribute("name", "홍길동");
+      		model.addAttribute("age", 30);
+      		return "showInfo";	// 뷰 페이지 이름 반환 : showInfo.jsp
+      	}
+      ```
+    
+      ```jsp
+      <!--showInfo.jsp페이지-->
+      
+      <%@ page language="java" contentType="text/html; charset=UTF-8"
+          pageEncoding="UTF-8"%>
+      <!DOCTYPE html>
+      <html>
+      	<head>
+      		<meta charset="UTF-8">
+      		<title>showInfo</title>
+      	</head>
+      	<body>
+      		이름 : ${name }<br>
+      		나이 : ${age }<br>
+      	</body>
+      </html>
+      ```
+    
+      
+    
   - **ModelAndView 사용형식**
     - ModelAndView 클래스 사용
+    
     - 데이터와 뷰 둘 다 설정
+    
     - 반환값으로 ModelAndVeiw 객체 반환
+    
     - ModelAndView mv = new ModelAndView();
       - **파라미터로 받을 수 있음 : public String show(ModelAndView mv)의 형태**
+      
     - **mv.addObject(“name”, “홍길동”);** // 데이터 설정
+    
     - **mv.setViewName(“showInfo2”);** // 뷰 이름 설정
+    
     - **return mv;** // ModelAndView 객체 반환
+    
+    - 예제>
+    
+      ```java
+      // ModelAndView 방식
+      	@RequestMapping("/showInfo2")
+      	public ModelAndView showInfo2(ModelAndView mv) {
+      		mv.addObject("name", "홍길동");	// 데이터 설정
+      		mv.addObject("address", "서울");	// 데이터 설정
+      		mv.setViewName("showInfo2");	// 뷰 이름 설정
+      		
+      		return mv;	// 뷰 페이지 이름 반환 : showInfo2.jsp
+      	}
+      ```
+    
+      ```jsp
+      <!--showInfo2.jsp페이지-->
+      
+      <%@ page language="java" contentType="text/html; charset=UTF-8"
+          pageEncoding="UTF-8"%>
+      <!DOCTYPE html>
+      <html>
+      	<head>
+      		<meta charset="UTF-8">
+      		<title>Insert title here</title>
+      	</head>
+      	<body>
+      		이름 : ${name }<br>
+      		주소 : ${address }<br>
+      	</body>
+      </html>
+      ```
+    
   - **Model과 ModelAndView 같이 사용 가능**
+
+    ```java
+    // Model + ModelAndView 방식 mix
+    	@RequestMapping("/showInfo3")
+    	public ModelAndView showInfo3(Model model, ModelAndView mv) {
+    		model.addAttribute("name", "이몽룡");
+    		
+    		mv.addObject("name", "성춘향");		// 동일 이름 name : 순서에 상관없이 ModelAndView가 우선
+    		mv.addObject("age", 40);
+    		mv.setViewName("showInfo3");
+    		
+    		model.addAttribute("address", "남원");
+    		return mv;		// ModelAndView 객체 반환
+    	} 
+    ```
+
+    ```jsp
+    <!--showInfo3.jsp페이지-->
+    
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8"%>
+    <!DOCTYPE html>
+    <html>
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>Insert title here</title>
+    	</head>
+    	<body>
+    		이름 : ${name }<br>
+    		나이 : ${age }<br>
+    		주소 : ${address }<br>
+    	</body>
+    </html>
+    ```
+
+    
 
 - **@RequestMapping 다중 맵핑**
 
   - 한 개의 메소드를 여러 요청 경로로 접근 처리 가능
+
   - @RequestMapping(value={"요청경로1", "요청경로2"})
+
+  - 예시>
+
+    ```java
+    // 다중맵핑
+    	@RequestMapping(value={"/book/bookInfoView3", "/book/bookInfoView4"})
+    	public String showBookInfo34(HttpServletRequest request, Model model) {
+    		// 경로 확인해서 경로에 따라 다르게 설정
+    		if(request.getServletPath().equals("/book/bookInfoView3")){
+    			model.addAttribute("title", "스프링 프레임워크3");
+    			model.addAttribute("price", 33000);
+    		}else if(request.getServletPath().equals("/book/bookInfoView4")) {
+    			model.addAttribute("title", "스프링 프레임워크4");
+    			model.addAttribute("price", 40000);
+    		}
+    		return "book/bookInfoView";
+    	}
+    ```
+
+    ```jsp
+    <%@ page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8"%>
+    <!DOCTYPE html>
+    <html>
+    	<head>
+    		<meta charset="UTF-8">
+    		<title>Insert title here</title>
+    	</head>
+    	<body>
+    		도서명 : ${title }<br><br>
+    		가격 : ${price }<br>
+    	</body>
+    </html>
+    ```
+
+    
 
 - **View페이지에서 컨트롤러로 데이터 전달**
 
@@ -433,6 +581,8 @@
 
           - 요청을 수행하는 메소드에서 Student객체 사용(커멘드 객체)
 
+          - Command 객체는 자동으로 View의 Model에 등록
+
             ```java
             // index에서 studentForm3 페이지 요청 처리
             	@RequestMapping("/student/studentForm3")
@@ -449,8 +599,6 @@
             		return "student/studentResult3"; 
             	}
             ```
-
-          - Command 객체는 자동으로 View의 Model에 등록
 
           - View 페이지에서 ${객체.필드명}
 
@@ -511,11 +659,123 @@
 
         
 
-- **<u>HashMap으로 받기</u>**
+- **<u>HashMap으로 받기(중요!!!!!)</u>**
 
   - 여러 개의 값을 HashMap으로 받을 수 있음
+
+  - MyBatis에서 전달할 때는 매개변수 2개이상이면 반드시 HashMap으로 전달해야 함
+
   - 학생 검색 폼
+
     - 검색 조건 : type
     - 검색 값(입력값) : keyword
+
   - 컨트롤러
-    - @RequestParam HashMap< String, Object> param
+
+    - **@RequestParam HashMap< String, Object> param**
+
+    - 예제>
+
+      - Form 생성(studentSearchForm)
+
+        ```jsp
+        <%@ page language="java" contentType="text/html; charset=UTF-8"
+            pageEncoding="UTF-8"%>
+        <!DOCTYPE html>
+        <html>
+        	<head>
+        		<meta charset="UTF-8">
+        		<title>학생 정보 검색</title>
+        	</head>
+        	<body>
+        		<h3>학생 검색</h3>
+        		<form method="post" action="/project/student/studentSearch">
+        			<select name="type">
+        				<option value="">검색 조건 선택</option>
+        				<option value="stdNo">학번</option>
+        				<option value="stdName">성명</option>
+        			</select>
+        			<input type="text" name="keyword">
+        			<input type="submit" value="검색">
+        		</form>
+        	</body>
+        </html>
+        ```
+
+      - Controller에서 폼 요청처리와 HashMap을 사용해서 받기
+
+        ```java
+        // 학생 검색 폼 요청 처리
+        	@RequestMapping("/student/studentSearchForm")
+        	public String studentSearchForm() {
+        		return "student/studentSearchForm";	// student폴더 안의 studentSearchForm.jsp
+        	}
+        	
+        	// 학생 검색 : type과 keyword를 HashMap으로 사용해서 받기
+        	@RequestMapping("/student/studentSearch")
+        	public String studentSearch(@RequestParam HashMap<String, Object> param, Model model) {
+        		// param에서 key로 value 추출해서 출력
+        		System.out.println(param.get("type"));
+        		System.out.println(param.get("keyword"));
+        		
+        		
+        		// DB에서 검색한 결과 받아왔다고 가정하고 ArrayList에 담아서 뷰 페이지로 전달
+        		// stdName "홍길동"으로 검색한 결과 2명 존재한다고 가정
+        		Student std1 = new Student();
+        		std1.setStdNo("2021001");
+        		std1.setStdName("홍길동");
+        		std1.setStdYear("2");
+        		
+        		Student std2 = new Student();
+        		std2.setStdNo("2021002");
+        		std2.setStdName("홍길동");
+        		std2.setStdYear("1");
+        		
+        		ArrayList<Student>stdList = new ArrayList<Student>();
+        		stdList.add(std1);
+        		stdList.add(std2);
+        		
+        		model.addAttribute("stdList", stdList);
+        		return "student/studentSearchResult";
+        	}
+        ```
+
+      - View페이지에 table 형태로 출력
+
+        ```jsp
+        <%@ page language="java" contentType="text/html; charset=UTF-8"
+            pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+        <%@ page session="false" %>
+        <!DOCTYPE html>
+        <html>
+        	<head>
+        		<meta charset="UTF-8">
+        		<title>학생 검색 결과</title>
+        	</head>
+        	<body>
+        		학생정보 출력<br>
+        		<table border="1">
+        			<tr>
+        				<th>학번</th>
+        				<th>성명</th>
+        				<th>학년</th>
+        			</tr>
+        			<c:forEach var="data" items="${stdList}">
+        			<tr>
+        				<td>${data.stdNo }</td>
+        				<td>${data.stdName }</td>
+        				<td>${data.stdYear }</td>
+        			</tr>
+        			</c:forEach>
+        		</table>
+        		
+        	</body>
+        </html>
+        ```
+
+        
+
+      
+
+      
