@@ -345,7 +345,7 @@
 
    - **컨 -> 서비스 -> DAO -> Mapper -> 서비스 -> 컨 -> 뷰**
 
-   - 예제순서 : **ProductController => ProductService(dao설정) => ProductMapper(select문 작성) => productAllListView.jsp만들고 테이블형태로 출력**
+   - 순서 : **ProductController => ProductService(dao설정) => ProductMapper(select문 작성) => productAllListView.jsp만들고 테이블형태로 출력**
 
 2. **상품 등록(insert)**
 
