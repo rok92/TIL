@@ -10,7 +10,7 @@
 
 - **스프링 데이터베이스 연동(MyBatis사용)**
 
-  - **MyBatis (마이바티스)**
+  - **MyBatis **
 
     - ORM(Object Relational Mapping : 객체 관계 맵핑) 프레임워크
     - 자바에서 JDBC를 이용할 경우 java 언어와 SQL 언어가 한 파일에 존재해서 재사용성이 좋지 않음
@@ -109,23 +109,23 @@
 
   - (라이브러리 추가 : < dependency> 추가)
 
-  - Spring JDBC 의존성 : spring-jdbc
+  - **Spring JDBC 의존성 : spring-jdbc**
 
     ![image-20220707173220450](Back_end6.assets/image-20220707173220450.png)
 
-  - Connection Pool 의존성 : commons-dbcp
+  - **Connection Pool 의존성 : commons-dbcp**
 
     ![image-20220707173239511](Back_end6.assets/image-20220707173239511.png)
 
-  - mysql 의존성
+  - **mysql 의존성**
 
     ![image-20220707173259987](Back_end6.assets/image-20220707173259987.png)
 
-  - mybatis 의존성
+  - **mybatis 의존성**
 
     ![image-20220707173335821](Back_end6.assets/image-20220707173335821.png)
 
-  - mybatis-spring 의존성
+  - **mybatis-spring 의존성**
 
     ![image-20220707173350184](Back_end6.assets/image-20220707173350184.png)
 
