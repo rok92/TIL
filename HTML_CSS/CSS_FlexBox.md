@@ -65,7 +65,7 @@
 
 - **align-content 속성**
 
-  |         stretch         |        flex-star        |       flex-end        |         space-between         |             space-around             |
+  |         stretch         |       flex-start        |       flex-end        |         space-between         |             space-around             |
   | :---------------------: | :---------------------: | :-------------------: | :---------------------------: | :----------------------------------: |
   | items를 시작점으로 정렬 | items를 시작점으로 정렬 | items를 끝점으로 정렬 | 각 items 사이를 균등하게 정렬 | 각 items의 외부 여백을 균등하게 정렬 |
 
@@ -83,7 +83,7 @@
 
 - **align-items 속성**
 
-  |         stretch         |        flex-star        |       flex-end        |       center        |                       baseline                       |
+  |         stretch         |       flex-start        |       flex-end        |       center        |                       baseline                       |
   | :---------------------: | :---------------------: | :-------------------: | :-----------------: | :--------------------------------------------------: |
   | items를 시작점으로 정렬 | items를 시작점으로 정렬 | items를 끝점으로 정렬 | items를 가운데 정렬 | 각 items 사이를 각 줄의 문자 기준선(baseline)에 정렬 |
 
