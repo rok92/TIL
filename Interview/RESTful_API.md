@@ -32,21 +32,21 @@
 - 소문자를 사용한다.
 
   ```http
-   http://cocoon1787.tistory.com/users/Post-Comments => 잘 못된 표현
+   http://aaa.com/users/Post-Comments => 잘 못된 표현
   ```
 
   ```http
-   http://cocoon1787.tistory.com/users/post-comments => 올바른 표현
+   http://aaa.com/users/post-comments => 올바른 표현
   ```
 
 - 언더바(_)대신 하이픈(-)을 사용한다.
 
   ```http
-  http://cocoon1787.tistory.com/users/post_comments => 잘 못된 표현
+  http://aaa.com/users/post_comments => 잘 못된 표현
   ```
 
   ```http
-   http://cocoon1787.tistory.com/users/post-comments => 올바른 표현
+   http://aaa.com/users/post-comments => 올바른 표현
   ```
 
   - **정확한 의미나 단어 결합이 불가피한 경우 하이픈("-")을 사용하며 하이픈("-") 사용도 최소한으로 설계한다.**
@@ -54,11 +54,11 @@
 - 마지막에 슬래시(/)를 포함하지 않는다.
 
   ```http
-  http://cocoon1787.tistory.com/users/ => 잘 못된 표현
+  http://aaa.com/users/ => 잘 못된 표현
   ```
 
   ```http
-   http://cocoon1787.tistory.com/users => 올바른 표현
+   http://aaa.com/users => 올바른 표현
   ```
 
   - **슬래시(/)는 계층관계를 나타낼 때 사용한다**.
@@ -66,11 +66,11 @@
 - 행위를 포함하지 않는다
 
   ```http
-   POST http://cocoon1787.tistory.com/users/post/1 => 잘 못된 표현
+   POST http://aaa.com/users/post/1 => 잘 못된 표현
   ```
 
   ```http
-  DELETE http://cocoon1787.tistory.com/users/1 => 올바른 표현
+  DELETE http://aaa.com/users/1 => 올바른 표현
   ```
 
   - **자원에 대한 행위는 HTTP Method(GET, POST, PUT, DELETE)로 표현한다.**
@@ -78,12 +78,12 @@
 - 파일 확장자는 URL에 포함하지 않는다
 
   ```http
-  http://cocoon1787.tistory.com/users/photo.jpg => 잘 못된 표현
+  http://aaa.com/users/photo.jpg => 잘 못된 표현
   ```
 
   ```http
-  GET http://cocoon1787.tistory.com/users/photo
-     HTTP/1.1 Host: cocoon1787.tistory.com Accept: image/jp => 올바른 표현
+  GET http://aaa.com/users/photo
+     HTTP/1.1 Host: aaa.com Accept: image/jp => 올바른 표현
   ```
 
   - **URL에 메시지 body 내용의 포맷을 나타내기 위한 파일 확장자를 적지 않는다. 대신 Accept header를 사용한다.**
@@ -91,11 +91,11 @@
 - 자원에는 형용사, 동사가 아닌 명사를 사용하며 컨트롤 자원을 의미하는 경우 예외적으로 동사를 사용한다.
 
   ```http
-  http://cocoon1787.tistory.com/duplicating => 잘 못된 표현
+  http://aaa.com/duplicating => 잘 못된 표현
   ```
 
   ```http
-  http://cocoon1787.tistory.com/duplicate
+  http://aaa.com/duplicate => 올바른 표현
   ```
 
   - **URL은 자원을 표현하는데 중점을 두기 때문에 동사, 형용사보다는 명사를 사용하여야 한다.**
