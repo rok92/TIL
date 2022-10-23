@@ -1,7 +1,9 @@
 ### SQL 기본
 
 <hr>
+
 #### 1. 관계형 DB 개요
+
 
 - **DB : 데이터를 일정한 형태로 저장해 놓은 것, DBMS를 이용하여 효율적인 데이터 관리와 데이터 손상 복구 가능**
   - 종류
@@ -31,3 +33,73 @@
     - TCL(Transaction Control Language) : 트랜잭션 제어어, DML로 저작한 결과를 논리적인 작업단위 별로 제어
       - COMMIT, ROLLBACK, SAVEPOINT
 - **테이블(Table) : RDB의 기본 단위, 데이터를 저장하는 객체, 칼럼과 행의 2차원 구조**
+
+#### 2. DDL
+
+- **데이터 타입(앞은 Oracle 뒤는 SQL Server)**
+
+  - CHAR(10) : 고정 길이 문자열, 할당된 변수 값의 길이가 괄호안에 설정한 10 이하일 때 차이는 공백으로 채워짐
+  - VARCHAR2(10), VARCHAR(10) : 가변 길이 문자열, 할당되는 변수 값의 길이의 최대값이 10임, 문자열은 가능한 최대 길이로 설정
+  - NUMBER(10, 9) : 숫자형(10은 전체 자리 수, 9는 소수점 자리 수)
+    - SQL Server는 NUMERIC DECIMAL FLOAT REAL 등
+  - DATE, DATETIME : 날짜형, 데이터 크기 지정이 필요하지 않음
+
+- **CREATE TABLE             SQL >> CREATE TABLE 테이블명 (칼럼명 데이터타입 제약조건, ...);**
+
+  - 테이블 및 칼럼 명명 규칙
+
+    - 1)알파벳 2)숫자 3)'_'(언더바) 4)'$'(달러) 5)'#'(샾) 사용
+    - 대소문자 구분하지 않음
+    - 테이블명은 단수형 권고
+
+  - 제약조건 : 테이블 무결성 유지가 목적, 복제 테이블에는 기존 테이블 제약조건 중 NOT NULL만 적용
+
+    - PRIMARY KEY : 테이블 당 하나의 기본키만 정의 가능, 기본키 생성시 DBMS가 자동으로 인덱스를 생성함, NULL 불가
+
+    - FOREIGN KEY : 다른 테이블의 기본키를 외래키로 지정, 참조 무결성 제약조건
+
+      SQL >> ALTER TABLE 테이블명 ADD CONSTRAINT 칼럼명 FOREIGN KEY (칼럼명) REFERENCES 테이블명 (칼럼명);
+
+    - UNIQUE KEY : 행 데이터를 식별하기 위해 생성함, NULL 가능
+
+    - DEFAULT : 'DEFAULT' 값으로 기본값 설정
+
+    - NOT NULL
+
+      NULL >> 아직 정의되지 않은 값 또는 현재 데이터를 입력하지 못하는 값, NULL과의 수치연산은 NULL, 비교연산은 False 출력
+
+    - CHECK : 입력값의 종류 및 범위 제한
+
+  - DESCRIBE 테이블명, sp_help'dbo.테이블명' : 테이블 구조 확인, 'DESCRIBE 테이블명' 이 ANSI/ISO 표준
+
+- **ALTER TABLE : 테이블의 칼럼 관련 변경 명령어**
+
+  - 칼럼 추가                SQL >> ALTER TABLE 테이블명 ADD (칼럼명 데이터타입);
+    - 마지막 칼럼으로 추가됨(칼럼 위치 지정 불가)
+  - 칼럼 삭제                SQL >> ALTER TABLE 테이블명 DROP COLUMN 칼럼명;
+    - 삭제 후 복구 불가
+  - 칼럼 설정 변경        SQL >> ALTER TABLE 테이블명 MODIFY (칼럼명 데이터타입 제약조건);
+    - NULL만 있거나 행이 없는 경우에만 칼럼의 크기 축소 가능
+    - NULL만 있을 떄는 데이터 유형도 변경 가능
+    - NULL이 없으면 NOT NULL 제약조건 추가 가능
+    - 기본값 변경 작업 이후 발생하는 데이터에 대해서만 기본값이 변경됨
+  - 칼럼명 변경             SQL >> ALTER TABEL 테이블명 RENAME COLOUMN 칼럼명;
+    - ANSI/ISO 표준에 명시된 기능 아님
+  - 제약조건 추가         SQL >> ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건;
+  - 제약조건 제가         SQL >> ALTER TABLE 테이블명 DROP CONSTRAINT 제약조건;
+
+- RENAME TABLE             SQL >> RENAME 테이블명 TO 테이블명;(ANSI/ISO 표준)
+
+  - 'ALTER TABLE 테이블명 RENAME TO 테이블명;' 으로도 가능
+
+- DROP TABLE                  SQL >> DROP TABLE 테이블명;
+
+  - 테이블의 데이터와 구조 삭제, 복구 불가
+
+  - CASCADE CONSTRAINT 옵션으로 관련 테이블의 참조 제약조건도 삭제하여 참조 무결성을 준수할 수 있음
+
+    (CREATE TABLE에서 ON DELETE CASCADE 옵션으로도 동일 기능 실현 가능)
+
+-  TRUNCATE TABLE         SQL >> TRUNCATE TABLE 테이블명;
+  - 테이블의 전체 데이터 삭제 (<-> DROP TABLE은 테이블 자체를 제거함)
+  - 로그를 기록하지 않기 떄문에 ROLLBACK 불가
