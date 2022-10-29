@@ -203,3 +203,74 @@
   - ROWNUM(Oracle) : SQL 처리 결과 집합의 각 행에 임시로 부여되는 번호, 조건절 내에서 행의 개수를 제한하는 목적으로 사용함
   - TOP(SQL Server) : 출력 행의 수 제한 함수, 'TOP(N)'로 N개 행 출력, 개수 대심 비율로도 제한 가능
     - ORDER BY 절이 없으면 ROWNUM과 TOP의 기능이 같음
+
+#### 6. 함수
+
+- **단일 행 함수 : SELECT절, WHERE절, OREDER BY절에 사용 가능, 각 행에 개별적으로 작용, 여러 인자를 입력해도 단 하나의 결과만 출력**
+  - 문자형 함수 : 문자열 입력 시 문자열이나 숫자 반환
+    - LOWER, UPPER, LENGTH
+    - CONCAT : 문자열 결합
+    - SUBSTR : 문자열 부분 추출
+    - LTRIM, RTRIM, TRIM : 왼쪽 공백 제거, 오른쪽 공백 제거, 양쪽 공백 제거
+    - ASCII : 아스키 코드값 출력
+  - 숫자형 함수
+    - ABS, SIGN : 절대값, 부호(1, 0, -1 중 출력)
+    - MOD : 나머지, 연산자 '%'로 대체 가능
+    - ROUND, CEIL, FLOOR : 반올림, 올림, 버림('함수(E, N)'으로 소수점 이후 N번째 자리까지 출력)
+    - TRUNC : 숫자형 부분 추출
+  - 날짜형 함수
+    - SYSDATE : 현재 시각 출력(년, 월, 일, 시, 분, 초)
+    - EXTRACT : 날짜형 부분 추출                    SQL >> SELECT EXTRACT(부분 FROM SYSDATE) FROM DUAL;
+    - +, - 숫자 : 일자 연산
+    - +, - 숫자/24 : 시간 연산
+    - NEXT_DAY : 지정된 요일 첫 날짜 출력
+  - 변환형 함수
+    - TO_NUMBER, TO_CHAR, TO_DATE (Oracle) : 문자열을 숫자로, 숫자나 날짜를 문자열로, 문자열을 날짜로
+    - CAST, CONVERT (SQL Server)
+  - NULL 관련 함수
+    - NVL(칼럼, 값) : NULL값 변환
+    - NVL2(칼럽, 값, 값) : NULL이면 앞의 값 아니면 뒤의 값 출력
+    - NULLIF(값, 값) : 같으면 NULL 다르면 첫 값 출력
+    - COALESCE(값, 값, ....) : NULL이 아닌 첫 값 출력
+    - ISNULL(칼럼, 값) : NULL이면 값으로 대치 아니면 칼럼 값  출력
+- **데이터 변환**
+  - 명시적 형 변환 : 변환형 함수를 이용하여 데이터 타입 변환
+  - 암시적 형 변환 : DBMS가 자동으로 데이터 타입 변환
+- **조건문 : IF ~ THEN ~ELSE 형태**
+  - **CASE WHEN 조건절1 출력값1 ..... ELSE 기본값 END : ELSE 생략시 NULL출력**
+    - **'CASE WHEN NULL THEN 출력값 ELSE 기본값'은 조건이 없으므로 모든 행에서 기본값 출력(일반적으로 'WHEN 칼럼 IS NULL'로 수정 필요)**
+  - **DECODE(칼럼, 기준값1, 출력값1, ..., 기본값) : Oracle 함수, 기준값 n이면 출력값 n출력**
+
+#### 7. GROUP BY, HAVING 절
+
+- **집계함수(Aggreagate Function) : 그룹별 결과 출력, 다중 행 함수 중 하나, GROUP BY 절이 없으면 그룹핑 대상이 존재하지 않아 에러 발생, WHERE 절에 사용 불가, 공집합에서도 연산수행**
+  - ALL, DISTINCT : 전체출력, 중복 제외 출력
+  - **SUM, AVG, MAX, MIN, VARIAN, STDDEV** : NULL 제외하고 연산(<-> 숫자 연산은 NULL 출력)
+  - **COUNT** : 행 수 출력
+    - COUNT(*) : NULL 포함 출력
+    - COUNT(표현식) : NULL 제외
+- **GROUP BY** : 그룹핑 기준 설정, 엘리어스(AS) 사용 불가
+- **HAVING** : GROUP BY 절에 의한 집계 데이터에 출력 조건을 걺(<-> WHERE절은 SELECT 절에 조건을 걸기 때문에 제외된 데이터가 GROUP BY 대상이 아님), 일반적으로 GROUP BY 뒤에 위치
+
+#### 8. ORDER BY 절
+
+- **ORDER BY : 특정 칼럼을 기준으로 정렬, 기본 정렬 기준은 오름차순(ASC)**
+
+  - 칼럼명, 앨리어스(AS), 칼럼의 SELECT절에서 순서로 칼럼 지정 가능, SELECT절에 없는 칼럼도 지정 가능, GROUP BY절이 있으면 GROUP BY 대상 칼럼만 지정 가능
+  - Oracle은 NULL을 최대값으로 판단함(<-> SQL Server은 최소값으로 판단함)
+
+- **SELECT문 실행 순서**
+
+  - 테이블에서 출력 대상이 아닌것은 제거하고 그룹핑해서 그룹핑된 값이 조건에 맞는 데이터를 계산 및 출력하고 정렬함
+
+    **SELECT 칼럼명 AS "별명"					5. 계산 및 출력하고**
+
+    **FROM 테이블명									1. 테이블에서**
+
+    **WHERE 조건식									  2. 출력 대상이 아닌 것은 제거하고**
+
+    **GROUP BY 칼럼/표현식					   3. 그룹핑해서** 
+
+    **HAVING 조건식									 4. 그룹핑된 값이 조건에 맞는 데이터를**
+
+    **ORDER BY 칼럼/표현식						6. 정렬함**
