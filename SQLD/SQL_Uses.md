@@ -195,10 +195,25 @@
 
 - 윈도우 함수 문법
 
-  SQL >> SELECT 윈도우함수(A) OVER (PARTITION BY 칼럼 윈도잉절) FROM 테이블명;
+  **SQL >> SELECT 윈도우함수(A) OVER (PARTITION BY 칼럼 윈도잉절) FROM 테이블명;**
 
   - PARTION BY : 그룹핑 기준
   - ORDER BY : 순위 지정 기준
   - 윈도잉절 : 함수의 대상이 되는 행 범위 지정
     - BETWEEN A AND B : 구간 지정
       - N PRECEDING, N FOLLOWING : N번째 앞 행, N번째 뒤 행
+      - UNBOUNDED PRECEDING, UNBOUNDED FOLLOWING : 첫 행, 끝 행
+      - CURRENT ROW : 현재 행
+    - ROWS, RANGE : 행 지정, 범위 지정
+
+#### 8. DCL
+
+- DCL : 유저를 생성하거나 권한을 제어하는 명령어, 보안을 위해 필요
+
+  - GRANT : 권한 부여
+
+    SQL >> GRANT CREATE 테이블 TO PJS
+
+  - REVOKE : 권한 수거(제거)
+
+    SQL >> REVOKE CREATE 테이블 FROM PJS
