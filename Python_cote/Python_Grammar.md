@@ -214,7 +214,7 @@
     ```py
     # 0 ~ 9의 수를 포함하는 리스트
     array = [i for i in range(10)]
-    print(array)				# 출력결과 : [0,1, 2, 3, 4, 5, 6, 7, 8, 9]
+    print(array)				# 출력결과 : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     
     # 0 ~ 19 까지 수 중에서 홀수만 포함하는 리스트
     array = [i for i in range(20) if i % 2 == 1]
@@ -696,6 +696,325 @@
   score = 85
   result = "Success" if score >= 80 else "Fail"
   print(result)									# 출력 : Success
+  ```
+
+
+#### 반복문
+
+- 특정한 소스코드를 반복적으로 실행하고자 할 때 사용하는 문법이다.
+
+- 파이썬에서는 while문과 for문이 있는데, 어떤 것을 사용해도 상관없다.
+
+  - 코딩테스트에서는 for문이 더 간결한 경우가 많다.
+
+  ```python
+  i = 1
+  result = 0
+  
+  while i <= 9 :
+      result += i
+      i += 1
+  print(result)						# 출력 : 45
+  ```
+
+- **무한루프**란 끊임없이 반복되는 반복 구문을 의미한다.
+
+  - 반복문을 작성한 후에는 항상 반복문을 탈출할 수 있는지 확인해야 한다.
+
+  ```python
+  x = 10
+  while x > 5 :
+        print(x)						# 출력 : 10 10 10 .....(중략)
+  ```
+
+- for문은 특정한 변수를 이용하여 'in' 뒤에 오는 **데이터(리스트, 튜플 등)에 포함되어있는 원소를 첫 번째 인덱스부터 차례대로 하나씩 방문**한다.
+
+  ```python
+  for 변수 in 리스트 :
+        실행할 소스코드
+  ```
+
+- for문에서 연속적인 값을 차례대로 순회할 때는 range()를 사용한다.
+
+  - 이때 range(시작값, 끝값 + 1)형태로 사용한다.
+  - 인자를 하나만 넣으면 자동으로 시작값은 0이 된다.
+
+  ```python
+  result = 0
+  # i 는 1부터 9까지의 모든값을 순회
+  for i in range(1, 10) :
+        result += i
+  print(result)						# 출력 : 45
+  ```
+
+  - continue 키워드
+
+    - 반복문에서 남은 코드의 실행을 건너뛰고, 다음 반복을 진행하고자 할 때 continue를 사용한다.
+    - 1에서 9까지의 홀수 합을 구할때 다음과 같이 작성할 수 있다.
+
+    ```python
+    result = 0
+    for i in range(1, 10) :
+          if i % 2 == 0 :
+                  continue
+          result += i
+    print(result)						# 출력 : 25
+    ```
+
+  - break 키워드
+
+    - 반복문을 즉시 탈출하고자 할 때 break를 사용한다.
+    - 1 ~ 5까지의 정수를 차례대로 출력하고자 할 때 다음과 같이 작성할 수 있다.
+
+    ```python
+    i = 1
+    
+    while True :
+          print(f"{'현재의 값 : '} {i}")
+          if i == 5 :
+              break
+          i += 1							# 출력 : 현재의 값 :  1
+                                            #		현재의 값 :  2
+                                            #		현재의 값 :  3
+                                            #		현재의 값 :  4
+                                            #		현재의 값 :  5
+    ```
+
+#### 함수
+
+- 함수(Function)이란 특정한 작업을 하나의 단위로 묶어놓은 것을 의미한다.
+
+- 함수를 사용하면 불필요한 소스코드의 반복을 줄일 수 있다
+
+- 내장함수 : 파이썬이 기본적으로 제공하는 함수
+
+- 사용자 정의 함수 : 개발자가 직접 정의하여 사용할 수 있는 함수
+
+- 함수 정의하기
+
+  - 프로그램에는 똑같은 코드가 반복적으로 사용되어야 할 때가 많다.
+
+  - 함수를 사용하면 소스코드의 길이를 줄일 수 있다.
+
+    - 매개변수 : 함수 내부에서 사용할 변수
+    - 반환 값 : 함수에서 처리된 결과를 반환
+
+    ```python
+    def 함수명(매개변수) :
+          # 실행할 소스코드
+          return 반환 값
+    
+    # 더하기 함수 예1
+    def add(a, b) :
+          return a + b
+    print(add(1, 3))				# 출력 : 4
+    
+    
+    # 더하기 함수 예2
+    def add(a, b) :
+          print(f"{'함수의 결과 : '} {a + b}")
+    add(3, 7)						# 출력 : 함수의 결과 :  10
+    ```
+
+- global 키워드
+
+  - global키워드로 변수를 지정하면 해당 함수에서는 지역 변수를 만들지 않고, 함수 밖에 선언된 변수를 바로 참조하게 된다.
+
+    ```python
+    a = 0
+    def func() :
+          global a
+          a += 1
+    for i in range(10) :
+          func()
+    print(a)
+    ```
+
+  - 여러개의 반환값
+
+    - 파이썬에서 함수는 여러개의 반환 값을 가질 수 있다.
+
+    ```python
+    def operator(a, b) :
+          add_var = a + b
+          substract_var = a - b
+          multiply_var = a * b
+          divide_var = a / b
+          return add_var, substract_var, multiply_var, divide_var
+    a, b, c, d = operator(7, 3)
+    print(a, b, c, d)							# 출력 : 10 4 21 2.3333333333333335
+    ```
+
+#### 람다 표현식
+
+- 람다 표현식을 이용하면 함수를 간단하게 작성할 수 있다.
+
+  - 특정한 기능을 수행하는 함수를 한 줄에 작성할 수 있다는 점이 특징이다.
+
+  ```python
+  def add(a, b) :
+        return a + b
+  
+  # 일반적인 add() 메소드 사용
+  print(add(3, 7))					# 출력 : 10
+  
+  # 람다 표현식으로 구현한 add() 메소드
+  print((lambda a, b : a + b)(3, 7))	# 출력 : 10
+  ```
+
+  - 람다 표현식 예시 : 내장 함수에서 자주 사용되는 람다 함수
+
+  ```python
+  array = [('홍길동', 50), ('이순신', 32), ('아무개', 74)]
+  
+  def my_key(x) :
+        return x[1]
+  print(sorted(array, key = my_key))
+  print(sorted(array, ley = lambda x : x[1]))			# 출력 : 	[('이순신', 32), ('홍길동', 50), ('아무개', 74)] 로 동일
+  ```
+
+  - 예시 2
+
+  ```python
+  list1 = [1, 2, 3, 4, 5]
+  list2 = [6, 7, 8, 9, 10]
+  
+  result = map(lambda a, b : a + b, list1, list2)
+  print(list(result))						# 출력 : [7, 9, 11, 13, 15]
+  ```
+
+#### 실전에서 유용한 표준 라이브러리
+
+- **내장함수** : 기본 입출력 함수부터 정렬 함수까지 기본적인 함수들을 제공한다
+
+  - 파이썬 프로그램을 작성할 때 없어서는 안 되는 필수적인 기능들을 포함하고 있다.
+
+- **itertools** : 파이썬에서 반복되는 형태의 데이터를 처리하기 위한 유용한 기능들을 제공한다.
+
+  - 특히 순열과 조합 라이브러리는 코딩 테스트에서 자주 사용된다.
+
+- **heapq** : 힙(Heap) 자료구조를 제공한다.
+
+  - 일반적으로 우선순위 큐 기능을 구현하기 위해 사용된다.
+
+- **bisect** : 이진탐색(Binary Search) 기능을 제공한다.\
+
+- **collection** : 덱(deque), 카운터(Counter) 등의 유용한 자료구조를 포함한다.
+
+- **math** : 필수적인 수학정 기능을 제공한다.
+
+  - 팩토리얼, 제곱근, 최대공약수(GCL), 삼각함수 관련 함수부터 파이(pi)와 같은 상수를 포함한다.
+
+  ```python
+  # sum()
+  result = sum([1, 2, 3, 4, 5])
+  print(result)						# 출력 : 15
+  
+  # min(), max()
+  min_result = min(7, 3, 5, 2)
+  max_result = max(7, 3, 5, 2)
+  print(min_result, max_result)		# 출력 : 2 7
+  
+  # eval()
+  result = eval("(3+5)*7")
+  print(result)						# 출력 : 56
+  
+  # sorted()
+  result = sorted([9, 1, 8, 5, 4])
+  reverse_result = sorted([9, 1, 8, 5, 4], reverse = True)
+  print(result)						# 출력 : [1, 4, 5, 8, 9]
+  print(reverse_result)				# 츨력 : [9, 8, 5, 4, 1]
+  
+  # sorted() with key
+  array = [('홍길동', 35), ('이순신', 75), ('아무개', 50)]
+  result = sorted(array, key = lambda x : x[1], reverse = True)
+  print(result)						# 출력 : [('이순신', 75), ('아무개', 50), ('홍길동', 35)]
+  ```
+
+#### 순열과 조합
+
+- 모든 경우의 수를 고려해야 할 때 어떤 라이브러리를 효과적으로 사용할수 있을까?
+
+- **순열** : 서로 다른 n개에서 서로다른 r개를 선택하여 일렬로 나열하는것
+
+  - {'A', 'B', 'C'}에서 세 개를 선택하여 나열하는 경우 : 'ABC', 'ACB', 'BAC', 'BCA', 'CAB', 'CBA'
+
+- **조합** : 서로 다른 n개에서 순서에 상관 없이 서로 다른 r개를 선택하는 것
+
+  - {'A', 'B', 'C'}에서 순서를 고려하지 않고 두 개를 뽑는 경우 : 'AB', 'AC', 'BC'
+
+  ![image-20221110222244704](Python_Grammar.assets/image-20221110222244704.png)
+
+  ```python
+  # 순열
+  from itertools import permutations
+  
+  data = ['A', 'B', 'C']	# 데이터 준비
+  result = list(permutations(data, 3))	# 모든 순열 구하기
+  print(result)					# 출력 : [('A', 'B', 'C'), ('A', 'C', 'B'), ('B', 'A', 'C'), ('B', 'C', 'A'), ('C', 'A', 'B'), ('C', 'B', 'A')]
+  ```
+
+  ```py
+  # 조합
+  from itertools import combinations
+  
+  data = ['A', 'B', 'C']	# 데이터 준비
+  result = list(combinations(data, 2))	# 2개를 뽑는 모든 조합 구하기
+  print(result)					# 출력 : [('A', 'B'), ('A', 'C'), ('B', 'C')]
+  ```
+
+- **중복 순열과 중복 조합(product, combinations_with_relpacement)**
+
+  ```python
+  from itertools import product
+  
+  data = ['A', 'B', 'C']	# 데이터 준비
+  result = list(product(data, repeat = 2))	# 2개를 뽑는 모든 순열 구하기(중복허용)
+  print(result)			# 출력 : [('A', 'A'), ('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'B'), ('B', 'C'), ('C', 'A'), ('C', 'B'), ('C', 'C')]
+  
+  from itertools import combinations_with_replacement
+  data = ['A', 'B', 'C']	# 데이터 준비
+  result = list(combinations_with_replacement(data, 2))	# 2개를 뽑는 모든 조합 구하기(중복허용)
+  print(result)			# 출력 : [('A', 'A'), ('A', 'B'), ('A', 'C'), ('B', 'B'), ('B', 'C'), ('C', 'C')]
+  ```
+
+#### Counter
+
+- 파이썬 collections 라이브러리의 Counter는 등장 횟수를 세는 기능을 제공한다.
+
+- 리스트와 같은 반복 가능한(iterable) 객체가 주어졌을 때 내부의 원소가 몇 번씩 등장하는지를 알려준다.
+
+  ```python
+  from collections import Counter
+  
+  counter = Counter(['red', 'blue', 'red', 'green', 'blue', 'blue'])
+  
+  print(counter['blue'])	# 블루가 등장한 횟수 출력
+  print(counter['green'])	# 그린이 등장한 횟수 출력
+  print(dict(counter))	# 사전 자료형으로 반환
+  
+  # 출력값 : 3
+  #		  1
+  #		  {'red': 2, 'blue': 3, 'green': 1}
+  ```
+
+#### 최대 공약수와 최소 공배수
+
+- 최대 공약수를 구해야 할 떄는 math 라이브러리의 gcd() 함수를 이용할 수 있다
+
+  ```python
+  import math
+  
+  # 최소 공배수(LCM)을 구하는 함수
+  def lcm(a, b) :
+        return a * b // math.gcd(a, b)
+  
+  a, b = 21, 14
+  print(math.gcd(a, b))
+  print(lcm(a, b))
+  
+  # 출력 : 7
+  #		42
   ```
 
   
