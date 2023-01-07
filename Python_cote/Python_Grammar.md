@@ -870,7 +870,7 @@
   def my_key(x) :
         return x[1]
   print(sorted(array, key = my_key))
-  print(sorted(array, ley = lambda x : x[1]))			# 출력 : 	[('이순신', 32), ('홍길동', 50), ('아무개', 74)] 로 동일
+  print(sorted(array, key = lambda x : x[1]))			# 출력 : 	[('이순신', 32), ('홍길동', 50), ('아무개', 74)] 로 동일
   ```
 
   - 예시 2
