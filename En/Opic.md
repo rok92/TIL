@@ -131,7 +131,6 @@ It helps me feel **refreshed and then I sit down on a bench and admire the view.
 is a best thing to do! **I think jogging is a great stress reliever.**
 
 <hr>
-
 **Q11> 조깅갈 때 조거로서 뭐 입음? 안전예방책은? 부상은 어케 피함?**
 
 > As a jogger, what items do you use or wear when you go jogging?
@@ -265,3 +264,222 @@ But after the covid-19 pandemic, we **can no longer travel abroad.** **In fact**
 and **eat out**. So **without a choice**, people have to **stay at home for their vacations.** **I personally think**
 
 **this is the biggest change in** how people spend their vacations **from the past to now.**
+
+<hr>
+
+- **사이클링(비교문제) => 설문조사, 사회이슈, 돌발주제 자주 출현**
+
+**Q10> 어렸을 때 자전거와 현재의 자전거를 비교해서 뭐가 다른지 설명좀..**
+
+> You indicated in the survey that you enjoy cycling. Compare the bike you have right now with 
+>
+> the one you had when you were young. How are they different? Tell me about it 
+>
+> in detail as much detail as possible.
+
+**Answer>**
+
+**Well...** the bike I have right now is very different from my old bike. **To start with**, I used to have a 10-dollar bike 
+
+when I was young. **I got it as a birthday gift from my parents**, and **since** I was very young, it had training wheels.
+
+It was very small, and it broke easily.
+
+My current bike is a lot different from the old one. **Today**, I ride a mountain bike. **I had to work 5 month to pay**
+
+**500 dollars for this bike**. It was way too expensive, but I fell in love with its design at first sight, so I had no option.
+
+Of course, it dosen't have training wheels as **I am a grown-up** and there are many attachments **such as** light for night
+
+riding and a water bottle holder. **Oh, and** it has strong body and **never goes wrong.** It's my all-time favorite item, and
+
+I adore it with all my heart.
+
+<hr>
+
+- **재활용(비교문제)**
+
+**Q11> 과거와 현재의 재활용 차이점 있음?**
+
+> Have you noticed any differences in the recycling system in your country?
+>
+> How has the process of recycling? changed from the past? Please tell me in detail. 
+
+**Answer>**
+
+Yes, Eva. **There have been a lot of changes in** recycling. **As far as I know**, the biggest difference is what people think of
+
+recycling. **I mean**, **in the past,** people didn't really care about recycling! They just threw garbage away **anywhere**,
+
+and **at any time** they **wanted to.**
+
+**However**, people have changed. Many people **have developed an interest** in recycling and **try to live in a green way**
+
+these day. **What's more**, the recycling syste**m was not as strict as it is now**. The rules for recycling are now much more
+
+**complicated than in the past!**
+
+**As far as I can remember,** people didin't have to **pay fines** for not recycling. But these days, w**e have set days for recycling**
+
+and **specific sites to throw  recyclables away**. If you fail to recycle properly, you have to pay a fine.
+
+**Oh, and** there are many more recycling sites now. You can easily find one on every corner of apartment complexs.
+
+**I personally think these are the biggest changes in recycling.**
+
+<hr>
+
+- **사회이슈(비교문제)**
+
+**Q12> 나라와의 관계의 변화가 있음?**
+
+>How has the relationship between your country and neiboring countires changed?
+>
+>What is the reason for that change?
+
+**Answer>**
+
+**Umm.... this is difficult question. I haven't thought about this..** but I will try mu best to answer.
+
+I'd like to talk about the relationship between Korea and China. There have been a lot of changes in the relationship
+
+between the two countires.
+
+For example, in the past, **there was not much interact between the two countires.** **Thus**, there were not many Chinse tourists in
+
+Korea. Oh, and **as far as I know**, Korean music was not popular in China.
+
+But **nowadays**, **Korean pop songs and singers are all the rage in China**. As a result, there is more **interaction** between two countries.
+
+**I mean**, many Chinese people are visiting Korea and the tourism industry is getting bigger **day by day**. I personally think that this is
+
+the biggest change between Korea and China.
+
+<hr>
+
+- **요리**(사물묘사)
+
+**Q10> 요리 뭐 잘함? 왜 그요리 좋아함? 맛있음? 어케만듬?**
+
+>You indicated that you like to cook. What do you like to cook the most?
+>
+>Why do you like cooking that meal? How do you make it? How does it taste?
+>
+>Give me all the details.
+
+**Answer>**
+
+**My favorite dish to prepare is** Samgyetang. It's **chicken soup** and considered a **traditional Korean food.**
+
+**What's so special about this dish** is that we cook a whole chicken without cutting it up.
+
+I like this dish because it's **tasty** and **it's full of nutrients.**
+
+First I need to stuff the chicken with **sticky rice and ginseng**. **In addition**, I need to put in **jujubes** and garlic.
+
+**I boil it for about an hour** and it's done! You can **season** it with salt and pepper and eat the chicken with Kimchi.
+
+<hr>
+
+**Q11> 요리에 관심 어케 가짐? 몇살때? 누가 갈켜줌? 첫번째 요리 누구한테?**
+
+> How did you become interested in cooking? How old were you? 
+>
+> Who taught you how to cook? Who did you make your first meal for?
+
+**Answer>**
+
+**I first became intersted in** cooking when I was 18years old. I wanted to do somthing for my mother's birthday.
+
+So I decided to cook seaweed soup which is a korean traditional food we eat on birthday.
+
+My father and I searched online and printed out a recipe. He helps me get the ingredients and taught me how to cook.
+
+It was very tasty so my mom was very happy and touched. I was very happy to make it for her.
+
+<hr>
+
+**Q12>{(경험) 실내관련 만능 스크립트} 요리하면서 예상치못한 시간이 있었음? 무슨요리였고 뭔문제?**
+
+> Think about what a time something unexpected happened while you were cooking. What
+>
+> kind of food were you trying to cook? What was the problem?
+
+**Answer>**
+
+**Last week**, I was cooking a chicken soup when the phone rang. It was my friend from China.
+
+**We started talking about our day** and **the conversation went on and on.** I totally forgot about the soup. About 10 min later,
+
+I smelled something burning. **I realized the soup was overcooking.**
+
+**When I went to check on it**, I saw that **it was burnt.** So **I had to throw it away**. I learned a lesson. You should fully focus on
+
+when you cook.
+
+<hr>
+
+- **루틴/경향(하이킹)**
+  - **육하원칙에 따라서 이야기 하는 유형**
+  - **언제/누구랑/어디로/하는 일 등**
+
+**Q10> 하이캉 좋아한다며? 갈떄 뭐입음? 시즌마다 차이가 있냐**?
+
+> You indicated in the survey that you like to go hiking. What do you wear when you go hiking?
+>
+> Does it differ according to different seasons?
+
+**Answer>**
+
+**Well...I think....** I wear differently **according to** different seasons **when I go hiking**.
+
+It's really cool and mild **all day long** in spring and fall so I wear light clothes.
+
+But in summer, it's **scorching hot** and I **sweat a lot** so  I wear T-shirts and shorts.
+
+**It's the opposite in winter.** **It's freezing cold so I wear multiple layer of clothes and jumper as well.**
+
+<hr>
+
+- **장소묘사(하이킹)**
+  - **가장 출제빈도 높음**
+
+**Q11> 어디가 니 뻬이보릿 등산장소임? 왜 좋아해? 자세히 설명좀**
+
+> Where is your favorite place to to hiking? Why do you prefer that place?
+>
+> Describe it in as much detail as possible.
+
+**Answer>**
+
+**Without a doubt**, my favorite place to go hiking is Namsan mountain and **there are several reasons for my preference.**
+
+**To start with**, **it's within walking distance of my house** so I can go whenever I'm **up for it**.
+
+Oh, and it has **breathtaking scenery** and fresh air. Hiking while enjoying the amazing view is a **great stress reliever.**
+
+**Last but not least**, there are many street vendors that sell delicious street food! It's the **highlight of hiking!**
+
+<hr>
+
+- **경험말하기(하이킹)**
+  - **특별한 경험으로 인해 오래 기억에 남는 사건에 대해 자세히 물어보는 유형**
+  - **만능 스크립트로 적용**
+
+Q12>
+
+> Do you have an experience of getting injured while hiking? 
+>
+> Please describe what happened in as much detail as possible.
+
+**Answer>**
+
+**Umm.... I don't have experience of getting injured while hiking.** 
+
+**Instead, I will talk about the last time I went hiking.**
+
+**The last time I went hiking** was a couple of days ago. I was really **stressed out** so I wanted to get some fresh air.
+
+I went there with my friend, Sam. While hiking, we talked about our day and current events. It was a greate time.
+
+I am planning go again very soon.
