@@ -1,5 +1,27 @@
 # Opic 
 
+#### Self Introduction
+
+Hi, I'm Rok. I don't really know what to tell you about myself. 
+
+umm.... Ok. First of all, I'm 30. I know you don't wonder how old I am.
+
+I live alone but don'y get me wrong I have family, we don't just live together.
+
+You know I'm into play the guitar these days. Honestly, I started playing the guitar 10 years ago.
+
+Back then, when I was Highschool, I watched some short video about Sungja Jung on Youtube who is a really famous guitar player in Korea.
+
+It was amazing cuz I couldn't believe his finger-style performences.
+
+I really wanted to be like him so, I've played the guitar so far as a hobby.
+
+You know, believe or not I can performence very well now even though I have never learned. 
+
+I want to show you if I have a chance. I think that's pretty much all I have to say about myself.
+
+
+
 #### 사회이슈 유형 정복하기
 
 - **공원**
@@ -131,7 +153,9 @@ It helps me feel **refreshed and then I sit down on a bench and admire the view.
 is a best thing to do! **I think jogging is a great stress reliever.**
 
 <hr>
+
 **Q11> 조깅갈 때 조거로서 뭐 입음? 안전예방책은? 부상은 어케 피함?**
+
 
 > As a jogger, what items do you use or wear when you go jogging?
 >
@@ -389,13 +413,15 @@ First I need to stuff the chicken with **sticky rice and ginseng**. **In additio
 
 **Answer>**
 
-**I first became intersted in** cooking when I was 18years old. I wanted to do somthing for my mother's birthday.
+**I first became intersted in** cooking, **back then**, when I'm 18. I wanted to do somthing for my mother's birthday.
 
 So I decided to cook seaweed soup which is a korean traditional food we eat on birthday.
 
 My father and I searched online and printed out a recipe. He helps me get the ingredients and taught me how to cook.
 
 It was very tasty so my mom was very happy and touched. I was very happy to make it for her.
+
+To this day, she still talk about it. haha
 
 <hr>
 
@@ -416,6 +442,28 @@ I smelled something burning. **I realized the soup was overcooking.**
 **When I went to check on it**, I saw that **it was burnt.** So **I had to throw it away**. I learned a lesson. You should fully focus on
 
 when you cook.
+
+
+
+**Answer> AL**
+
+Although my number one hobby is cooking there were some unexpected experiences.
+
+I will tell you about this one ingredient that happened last year. It was when I planned to cook for my gf's 27th birthday. I wanted to do the best for my gf, so my original plan was to make a chocloate cake.
+
+But the thing is... it was my first time to bake it!!
+
+I searched information online and read every single line of it to be fully prepared. This process helped me draw up specific plans.
+
+But as soon as I started baking, I was in a panic. I set the temperature to high and missed the timing to turn off the oven. 
+
+As a result, the cake was burnt, so I couldn't give to her...
+
+One food fortune was that I prepared gift basket as well. I was so worn out at the end of the day.
+
+Since then, my baking skill have improved day by day and now, making a chocolate cake is like a walk the par for me.
+
+
 
 <hr>
 
@@ -483,3 +531,166 @@ Q12>
 I went there with my friend, Sam. While hiking, we talked about our day and current events. It was a greate time.
 
 I am planning go again very soon.
+
+<hr>
+
+#### Combo 문제(만능표현)
+
+- **공원**
+
+**Q10> 장소묘사**
+
+> You indicated in the survey that you like to go to the park.
+>
+> Describe yout favorite park in as much detail as posiible.
+
+- **My (favorite, number one) A is B**
+- **It's close to my house**
+- **The atmosphere is active**
+- **admire the view**
+
+**Q11> 루틴**
+
+> How often do you go to the park? Who do you usually go with?
+>
+> What do you like to do? Tell me in as much detail as possible.
+
+- **I usually go to 000 once a week. I also go whenever I am stressed out**
+- **I go with my friends or family when they are busy, I go there by myself**
+
+**Q12> 기억에 남는 경험**
+
+> Please tell me about time something interesting or unexpected happened at the park.
+>
+> Where and when did occur? What were you doing at the time?
+
+- **As far as I can remember**
+- **I had a (memorable / unforgetable) experience while ~ing.**
+- **I couldn't believe my eyes!**
+- **It was a once in a lifetime experience.**
+
+<hr>
+
+- 롤플레잉(재활용)
+
+Q10>
+
+> I'm going to give you a situation to act out.
+>
+> You just moved into a new apartment and you want to do recycling but do ont know the rules for this apartment.
+>
+> Ask 3-4 questions to a person working at an administration office of this apartment about recycling system.
+
+**Answer>**
+
+Hello, I'm new here! I just moved in last week and I have some questions about recycling system.
+
+Where is the recycling site? I have been looking for it for hours and hours but couldn't find it. Oh, I see.
+
+When is the collection day? Every thursday? Oh one mre thing! Do I get fined if I don't do it right?
+
+Ok! Thank you so much for yout kind answers. Bye.
+
+<hr>
+
+Q11>
+
+> I am so sorry but there is a situation I need you resolve. You had many parties and threw out a lot of garbage.
+>
+> Your neighbors are complaining about your garbage so give 2 or 3 solutions to solve the problem.
+
+**Answer>**
+
+Hi, I am so sorry that I had many parties and couldn't control the amount of garbage I threw out.
+
+I really didn't mean to cause any trouble and I want to get along well with you guys so I came up with some solutions.
+
+First, I will have fewer parties. My friends used to call me a party animal and now that I think about it, I threw a party every single day! I will make sure to have a party only once a month.
+
+Another option I can think of is I will have parties outside!
+
+This way, I will be able to control the amount of garbage I produce and throw away less.
+
+Which option do you prefer? Do you have another option in mind?
+
+Once again, I really apology that you guys feel uncomfortable and if you guys don't mind, I want to buy for dinner. Shall we meet this Sat? Okay then, I will see you on Sat. Bye!
+
+<hr>
+
+- 롤플레잉(Bank)
+
+Q10>
+
+> I am going yo give you a situation to act out.
+>
+> You want to open a bank account. Ask 3-4 questions to a bank teller about opening an account.
+
+**Answer>**
+
+Hi! I have some questions about opening an account. Can I open a bank account right now?
+
+Ok! Then do  I need an ID card? And how long does it take to open an account? Only 5 minute?
+
+Thank you for your kind answer. Oh, one more thing! Could you tell me where the toilet is?
+
+Ok! Thank you so much for your help! Bye!
+
+<hr>
+
+Q11>
+
+> I am so sorry but there is a situation you need to resolve.
+>
+> Your card is stuck in the ATM machine. Please call the bank, explain the situation and give 2 solutions to solve the problem.
+
+**Answer>**
+
+Hi! I have problem with my bank card. My card is stuck in the ATM machine right now and  I can't get it out right now. I can think of several options.
+
+I can visit your bank right now and get it reissued? If not, can you please send someone to fix thos problem?
+
+Which option do you prefer? Ok! I will wait here. Thanks for your help!
+
+<hr>
+
+- 롤플레잉(초대)
+
+Q10>
+
+> I am going yo give you a situation to act out.
+>
+> You want to invite a couple to your home for dinner this weekend. 
+>
+> Call your family and ask 3-4 questions about it.
+
+**Answer>**
+
+Hi! mom! It's me, Rok. I want to invite my friend Erin and Jacob for dinner. You know Erin, right?
+
+Is it ok to invite them this Sunday? Great! Thanks mom! Well... Erin told me she loves Samgyetang and is craving for it these days. Shall we make Samgyetang for her?
+
+I know that you are second-to-none in cooking, and the last time I had Samgyetang.. the taste was beyond my expectations! OK, I got it. I will go grocery shopping tonight!
+
+Oh, one more thing! Why don't we clean our house? Our hose is a mess now!!!
+
+All right, I will do that. Love you mom and see you at home!
+
+<hr>
+
+Q11>
+
+> I am so sorry but there is a situation you need to resolve.
+>
+> You are planing to invite your friends to your house, buy one of ur family members is sick.
+>
+> Call your friend and explain why you can't have them over and offer two or three other options.
+
+**Answer>**
+
+Hi! Erin! It's me, Rok.. I am so sorry to tell you this at the last minute but I don't think you guys can come to my house today. The thing is.... my mom is not feeling well today. She caught a cold. I can think of several options.
+
+Let's take a rain check! If not, why don't we go out to eat? I know a really good restaurant just down the street! Whichi option do you prefer? Do you have another option in mind?
+
+To make it up to you, I will buy you guys lunch!
+
+Ok, thanks a million for understanding and I will make sure to invite you guys again as soon as my mom gets better. Once again, I am so sorry!!!
