@@ -67,7 +67,7 @@ a lot of stuff in my home.
 
 (본론1) 가구 + 전자제품
 
-**Basically,** My apartment is small studio, so it doesn't have a lot of space
+**Basically,** my apartment is small studio, so it doesn't have a lot of space.
 
 It has a single-size bed, a small coffee table, a chair and a closet.
 

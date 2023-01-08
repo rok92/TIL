@@ -44,7 +44,7 @@ that kids have! **Anyways, I think these are the diffrences between** what kids 
 
 **I think one major issue we are facing right now is COVID-19.** We all know COVID-19 is very serious
 
-pandemic and **social distancing** is the key to prevent COVID-19. So the **government has mad some**
+pandemic and **social distancing** is the key to prevent COVID-19. So the **government has made some**
 
 **regulations on** the number of people gathering **at the same time**. But since it's not easy to monitor 
 
@@ -76,7 +76,7 @@ situation. I really want people to keep social distancing so that COVID-19 ends 
 
 **prepared.** **During the trip**,  we do various activites to **make the most of** our trip.
 
-We first go th Haeundae Beach. **It's good for a change of air** to **enjoy the breathtaking scenery** 
+We first go the Haeundae Beach. **It's good for a change of air** to **enjoy the breathtaking scenery** 
 
 and fresh air. **After hanging out** for several hours, we go to a nearby restarant to **have local food.** 
 
@@ -94,13 +94,13 @@ The taste of raw fish and pork dishs is **always far beyond my expectation.** Vi
 
 **Answer>**
 
-**I'm a light packer** when I travel. **There are several steps I take when** preparing for a trip.
+**Actually, I'm a light packer** when I travel. **There are several steps I take when** preparing for a trip.
 
 **The most important step is** (to) make a list of things I need to take. **This list includes** my wallet, 
 
 cellphone, cellphone charger, selfie-stick, toiletries and sunglasses. **It's a piece of cake** to decide 
 
-what to pack. But **it's a different story when it comse to clothes**. I need to **check the local weather**
+what to pack. But **you know, it's a different story when it comse to clothes**. I need to **check the local weather**
 
 before deciding what to take. **If it's winter there**, I take my long underwear and outerwear. **Oh, and**
 
@@ -194,7 +194,7 @@ so we talked **for hours and hours**. **My friends are good listeners and know e
 
 **me so it was very comfortable sharing what happened.** Before the vacation, I was really **worn out** so 
 
-I spent every second of my last vacations relaxing. To me, my last stay-at-home vacaions was the best
+I spent every second of my last vacations relaxing. To me, my last stay-at-home vacations was the best
 
 vacations ever!
 
@@ -216,7 +216,7 @@ These days, many people to **stay at home during vacations** than **going on a t
 
 other people 24/7 so they sometimes want to be alone and collect **their thought**. It's good for a 
 
-**changeof air** to stay at home. After resting for a few days, their worries are gone and 
+**change of air** to stay at home. After resting for a few days, their worries are gone and 
 
 **they feel refreshed.** **What's more**, the rapid advances in technology **has allowed people to do various**
 
@@ -232,7 +232,7 @@ they missed are good ways to **let off some steam**(스트레스 풀림).
 
 **I can't afford to go abroad**. But I believe what's really important is how they spend their vacations,
 
-not where whey spend it.
+not where they spend it.
 
 <hr>
 
