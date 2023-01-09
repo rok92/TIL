@@ -55,9 +55,7 @@ answer>
 
 (서론)
 
-**Honestly, I'd say** this is a little bit tricky question for me because I don't have
-
-a lot of stuff in my home.
+**Honestly, I'd say** this is a little bit tricky question for me because I don't have a lot of stuff in my home.
 
 **I mean**,  I don't need a lot of furniture since I live alone in a small apartment.
 
@@ -73,7 +71,7 @@ It has a single-size bed, a small coffee table, a chair and a closet.
 
 **As for the electronic appliances,** I've got decent computers, both a desktop PC and a laptop.
 
-**In addition,** there are some kitchen appliances like a firdge, a microwave and a coffee maker in the 
+**In addition,** there are some kitchen appliances like a fridge, a microwave and a coffee maker in the 
 
 kitchen area.
 
@@ -171,11 +169,11 @@ beautiful photo to upload to my Instagram.
 
 (이유2)
 
-Well.. Oh! and Han River Park is **within waling distance from my house.**
+Well.. Oh! and Han River Park is **within walking distance from my house.**
 
 (이유3)
 
-What's more, the par has convenience stores. We can buy chicken, noodles, and beer. 
+What's more, the park has convenience stores. We can buy chicken, noodles, and beer. 
 
 Having chicken and beer is so delicious.
 
