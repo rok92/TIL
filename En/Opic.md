@@ -226,9 +226,7 @@ I believe that **there** **are several reasons for their preference**.
 
 **First of all**, it's a busy life for everyone and people interact with  other people 24/7 so they sometimes want to be alone and collect **their thought**. 
 
-It's good for a **change of air** to stay at home. After resting for a few days, their worries are gone and 
-
-**they feel refreshed.** 
+It's good for a **change of air** to stay at home. After resting for a few days, their worries are gone and  **they feel refreshed.** 
 
 **What's more**, the rapid advances in technology **has allowed people to do various** **activities** they couldn't do before. 
 
@@ -260,19 +258,19 @@ not where they spend it.
 
 I think people **used to** spend their vacations according to their personal preperence. 
 
-**Some went abroad** for traveling  while others enjoyed a **homecation**. But **everything has totally changed** because of the
+**Some went abroad** for traveling  while others enjoyed a **homecation**. But **everything has totally changed** because of the COVID-19 pandemic.
 
-COVID-19 pandemic.
+Before thte COVID-19 pandemic, many people preferred to go abroad for traveling. 
 
-Before thte COVID-19 pandemic, many people preferred to go abroad for traveling. **It was a trend**
+**It was a trend** to many young Koreans and families **as well.** 
 
-to many young Koreans and families **as well.** They **were able to try out defferent culture, visit** 
-
-**tourist attractions and widen the viewpoint of the world** through traveling.
+They **were able to try out defferent culture, visit**  **tourist attractions and widen the viewpoint of the world** through traveling.
 
 But after the covid-19 pandemic, we **can no longer travel abroad.** 
 
-**In fact**, we can barely **have gatherings** and **eat out**. So **without a choice**, people have to **stay at home for their vacations.** **I personally think** **this is the biggest change in** how people spend their vacations **from the past to now.**
+**In fact**, we can barely **have gatherings** and **eat out**. So **without a choice**, people have to **stay at home for their vacations.** 
+
+**I personally think** **this is the biggest change in** how people spend their vacations **from the past to now.**
 
 <hr>
 
@@ -296,9 +294,9 @@ But after the covid-19 pandemic, we **can no longer travel abroad.**
 
 It was very small, and it broke easily.
 
-My current bike is a lot different from the old one. **Today**, I ride a mountain bike. **I had to work 5 month to pay**
+My current bike is a lot different from the old one. **Today**, I ride a mountain bike. **I had to work 5 month to pay** **500 dollars for this bike**. 
 
-**500 dollars for this bike**. It was way too expensive, but I fell in love with its design at first sight, so I had no option.
+It was way too expensive, but I fell in love with its design at first sight, so I had no option.
 
 Of course, it dosen't have training wheels as **I am a grown-up** and there are many attachments **such as** light for night riding and a water bottle holder. 
 
