@@ -72,7 +72,7 @@
     - DI : 의존성 주입
     - IoC(Inversion of Control) : 제어의 역전
 
-- **EJB(Enterprise JavaBean)**
+- **EJB(Enterprise Java Bean)**
 
   - 규모가 커지고 복잡한 애플리케이션 제작을 위해 만들어진 기술
   - 컴포넌트 기반
