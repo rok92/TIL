@@ -34,5 +34,19 @@
 - 가상돔은 돔(DOM)의 한계를 탈피하기 위해서 나온 개념이다.
 - DOM : Document Object Model 즉 문서 객체 모델이다. 우리가 사용하는 HTML 단위 하나하나를 객체로 생각한 모델이라고 생각하면 된다.
 
+#### 4. useState
+
+-  데이터를 UI로 나타내주는 react-hook이다
+
+  ```react
+  import {useState} from 'react';
+  
+  function App(){
+      const [item, setItem] = useState();
+  }
+  ```
+
+  
+
 
 
