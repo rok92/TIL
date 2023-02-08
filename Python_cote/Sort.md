@@ -131,5 +131,31 @@
           					# 결과 : [0 0 1 1 2 2 3 4 5 5 6 7 8 9 9]
   ```
 
-  
+
+#### 예제> 두 배열의 원소 교체
+
+![image-20230207200358499](Sort.assets/image-20230207200358499.png)
+
+![image-20230207200415898](Sort.assets/image-20230207200415898.png)
+
+![image-20230207200441379](Sort.assets/image-20230207200441379.png)
+
+```python
+n, k = map(int, input().split()) # 입력받기
+a = list(map(int, input().split())) # 배열 A의 원소 입력받기
+b = list(map(intm input().split())) # 배열 B의 원소 입력받기
+
+a.sort() # 오름차순 정렬 
+b.sort(reverse = True) # 내림차순 정렬
+
+# 첫 번째 인덱스부터 확인하면서 두 배열의 원소 최대 K번 비교
+for i in range(k):
+    # A의 원소가 B보다 작은 경우
+    if a[i] < b[i]:
+        # 두 원소를 스와프(교체)
+        a[i], b[i] = b[i], a[i]
+    else:	# A의 원소가 B의 원소보다 크거나 같을 때 반복문 탈출
+        break
+print(sum(a))	# A배열 원소의 합 출력
+```
 
