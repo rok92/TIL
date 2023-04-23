@@ -59,7 +59,7 @@
 
   그래서 homebrew를 재설치 하는 방법을 선택했습니다.
 
-- `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"` 먼저 이 명령어로 삭제 후 위에서 말한 경로에 homebrew가 없어진지 확인합니다. 만약 계속 있을 경우 home-brew 폴더를 삭제해 주고 재설치 하면 됩니다.
+- `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"` 먼저 이 명령어로 삭제 후 위에서 말한 경로에 homebrew가 없어진지 확인합니다. 만약 계속 있을 경우 homebrew 폴더를 삭제해 주고 재설치 하면 됩니다.
 
 - 재설치
 
