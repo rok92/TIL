@@ -1,6 +1,6 @@
 # React LifeCycle(Class_component)
 
-![image-20230127174600487](C:\Users\kyeon\AppData\Roaming\Typora\typora-user-images\image-20230127174600487.png)
+![React Lifecycle Methods](https://i1.wp.com/programmingwithmosh.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-31-at-1.44.28-PM.png?resize=1024%2C567&ssl=1)
 
 - **Mounting** : 앱, 컴포넌트가 막 시작되었을 때
   - constructure : 첫번째로 실행되는 lifecycle함수(앱이 실행되면 무조건 constructure을 실행하고 들어감), state를 만든다.
