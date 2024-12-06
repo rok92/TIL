@@ -50,3 +50,19 @@
      만약 백그라운드로 실행을 하고싶으면 -d를 추가하면 된다
 
      => `docker run -d -p 8080:8080 <빌드한 이미지의 이름>`
+
+4. 도커파일 명령어 모음
+
+   ```dockerfile
+   FROM openjdk:17-jdk-slim # 생성할 이미지의 베이스가 될 이미지
+   WORKDIR /app # 명령어를 실행할 작업 디렉토리를 설정
+   RUN ./gradlew bootJar # 이미지 빌드 시 내부적으로 실행할 커멘드
+   ENTRYPOINT ["java", "-jar", "app.jar"] # 이미지 실행 시 항상 실행되야 하는 커멘드 설정
+   CMD ["java", "-jar", "app.jar"] # 이미지가 실행될 때마다 실행할 명령어. 도커파일 내에서 한 번만 사용할 수 있다.
+   EXPOSE 8080 # 이미지에서 노출 할 포트 및 프로토콜 설정
+   COPY app.jar /app/ # 이미지의 파일 시스템으로 파일 또는 디렉토리 복사
+   ADD app.jar /app/
+   ENV APP_ENV=production # 환경변수 설정
+   ```
+
+   
